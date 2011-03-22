@@ -1,5 +1,6 @@
 class Comic < ActiveRecord::Base
-  has_many :strips, :order=>:date
+  has_many :strips, :order=>:date, :dependent=>:destroy
+  named_scope :enabled, :conditions=>{:enabled=>true}
 
   def self.update_all
     Comic.find(:all, :conditions=>{:enabled=>true}).each {|comic| comic.update}
@@ -9,27 +10,38 @@ class Comic < ActiveRecord::Base
     require 'open-uri'
     require 'net/http'
     require 'digest/md5'
-    puts "Hole base_url (#{base_url})..."
+    print "Updating #{name}."
+    print "Getting base_url (#{base_url})..."
     doc = Nokogiri::HTML(open(base_url))
-    puts "Suche..."
+    print "Parsing..."
     element = doc.css(search_query).first
     raise unless element.name=="img"
-    strip = Strip.new
-    strip.title_tag = element["title"] || ""
-    strip.alt_tag = element["alt"] || ""
-    puts "Gefunden. src: #{element["src"]}"
+    print "Found."
     url = URI.join(base_url, element["src"])
 
-    puts "Lade Bild..."
+    print "Loading image..."
     req = Net::HTTP::Get.new(url.path)
     req.add_field("Referrer", base_url)
     res = Net::HTTP.new(url.host, url.port).start do |http|
       http.request(req)
     end
 
-    raise unless res.body.length>0
+    raise "Body length is 0" unless res.body.length>0
+
+    hash = Digest::MD5.hexdigest(res.body)
+    bytes = res.body.length
+
+    # Falls der Comic schon existiert: Abbrechen
+    if self.strips.find_by_hash_value_and_bytes hash, bytes
+      puts "Already known."
+      return
+    end
+
+    strip = Strip.new
+    strip.title_tag = element["title"] || ""
+    strip.alt_tag = element["alt"] || ""
     
-    dir = RAILS_ROOT + "/public/comics/" + name + "/"
+    dir = RAILS_ROOT + "/public/comics/" + directory + "/"
     file = Time.now.strftime("%Y%m%d-%H%M%S") + File.extname(url.path)
 
     FileUtils.mkdir_p(dir)
@@ -41,7 +53,7 @@ class Comic < ActiveRecord::Base
     strip.bytes = res.body.length
     strip.comic = self
     strip.hash_value = Digest::MD5.hexdigest(res.body)
-    puts "Fertig. #{strip.inspect}"
+    puts "Done."
     strip.save
   end
 
