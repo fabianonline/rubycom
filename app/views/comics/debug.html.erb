@@ -1,0 +1,17 @@
+<h1>Debug-Ansicht zu <%= h @comic.name %></h1>
+<h2>Element-Abfrage</h2>
+<p>Die Suchanfrage auf der Seite ergibt folgendes Element:</p>
+<p><%= h element=@comic.get_img_element %></p>
+
+<h2>Ergebnis der URL-Suche</h2>
+<p>Folgende URL wurde gefunden:</p>
+<p><%= h url=@comic.get_url(element) %></p>
+
+<h2>Bild</h2>
+<p>Folgendes Bild wurde gefunden:</p>
+<% data = @comic.get_image_data(url) %>
+<p><img src="data:<%= data[:content_type] %>;base64,<%= Base64.encode64(data[:data]) %>" /></p>
+
+<h2>Aktionen</h2>
+<%= link_to "Comic bearbeiten", edit_comic_url(@comic) %><br />
+<%= link_to "Übersicht", comics_url %>
