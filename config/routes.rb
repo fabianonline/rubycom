@@ -35,7 +35,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # See how all your routes lay out with "rake routes"
 
-  map.connect 'day/:id', :controller=>:comics, :action=>:day
+  map.connect 'day/:date', :controller=>:comics, :action=>:day
   map.root :controller=>:comics, :action=>:day
   map.connect 'comics/:id/page/:page', :controller=>:comics, :action=>:show
   map.resources :comics

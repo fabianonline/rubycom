@@ -10,11 +10,11 @@ class ComicsController < ApplicationController
   end
 
   def day
-    unless params[:id]
+    unless params[:date]
       date = Time.now.hour>=12 ? Date.today : Date.yesterday
-      redirect_to :id=>date and return
+      redirect_to :date=>date and return
     end
-    @date = Date.parse(params[:id])
+    @date = Date.parse(params[:date])
     @comics = Comic.enabled.all(:order=>:name)
   end
 
