@@ -37,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect 'day/:id', :controller=>:comics, :action=>:day
   map.root :controller=>:comics, :action=>:day
+  map.connect 'comics/:id/page/:page', :controller=>:comics, :action=>:show
   map.resources :comics
   map.debug_comic 'comics/:id/debug', :controller=>:comics, :action=>:debug
 

@@ -1,7 +1,7 @@
 <% @comics.each do |comic| %>
   <h1><%= h comic.name %></h1>
   <% comic.strips.by_date(@date).each do |strip| %>
-    <%= image_tag strip.filepath, :alt=>strip.alt_tag, :title=>strip.title_tag %>
+    <%= image_tag_for_strip strip %>
     <%= strip.filename %>
   <% end %>
 <% end %>

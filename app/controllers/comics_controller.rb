@@ -3,10 +3,16 @@ class ComicsController < ApplicationController
     @comics = Comic.all(:order=>"enabled DESC, name", :include=>:strips)
   end
 
+  def show
+    redirect_to :page=>1 unless params[:page]
+    @comic = Comic.find(params[:id])
+    @strips = Strip.paginate_by_comic_id @comic.id, :page=>params[:page], :order=>"date DESC", :per_page=>25
+  end
+
   def day
     unless params[:id]
       date = Time.now.hour>=12 ? Date.today : Date.yesterday
-      redirect_to :controller=>:comics, :action=>:daily, :id=>date and return
+      redirect_to :id=>date and return
     end
     @date = Date.parse(params[:id])
     @comics = Comic.enabled.all(:order=>:name)
