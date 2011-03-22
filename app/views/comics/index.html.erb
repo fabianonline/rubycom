@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Letzter Comic</th>
+    <th>Anzahl Comics</th>
+    <th>Aktionen</th>
+  </tr>
+
+  <% @comics.each do |comic| %>
+    <tr>
+      <td><%= h comic.name %></td>
+      <td><%= time_ago_in_words(comic.strips.last.date) rescue "Nie" %></td>
+      <td><%= comic.strips.count %></td>
+      <td><%= link_to "Debug-Ansicht", debug_comic_url(comic) %>
+          <%= link_to "bearbeiten", edit_comic_path(comic.id) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Comic hinzufügen", new_comic_url %>

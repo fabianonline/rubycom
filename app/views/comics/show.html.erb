@@ -1,0 +1,8 @@
+<h1><%= @comic.name %></h1>
+<% @strips.each do |strip| %>
+  <%= strip.date %><br />
+  <%= image_tag_for_strip strip %>
+  <br /><br />
+<% end %>
+
+<%= will_paginate @strips %>
