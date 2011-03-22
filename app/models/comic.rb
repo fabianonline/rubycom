@@ -3,10 +3,10 @@ class Comic < ActiveRecord::Base
   named_scope :enabled, :conditions=>{:enabled=>true}
 
   def self.update_all
-    Comic.find(:all, :conditions=>{:enabled=>true}).each {|comic| comic.update}
+    Comic.enabled.each {|comic| comic.get_new_strip}
   end
 
-  def update
+  def get_new_strip(do_save=true)
     require 'open-uri'
     require 'net/http'
     require 'digest/md5'
@@ -15,7 +15,7 @@ class Comic < ActiveRecord::Base
     doc = Nokogiri::HTML(open(base_url))
     print "Parsing..."
     element = doc.css(search_query).first
-    raise unless element.name=="img"
+    raise "Selektiertes Element ist kein img-Element." unless element.name=="img"
     print "Found."
     url = URI.join(base_url, element["src"])
 
@@ -54,7 +54,8 @@ class Comic < ActiveRecord::Base
     strip.comic = self
     strip.hash_value = Digest::MD5.hexdigest(res.body)
     puts "Done."
-    strip.save
+    strip.save if do_save
+    return strip
   end
 
 end

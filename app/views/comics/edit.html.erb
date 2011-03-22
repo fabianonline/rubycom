@@ -1,0 +1,23 @@
+<script type="text/javascript">
+function set_directory() {
+  if($('comic_directory').getValue().length==0) {
+    var name = $('comic_name').getValue();
+    name = name.toLowerCase();
+    name = name.replace(/ +/g, "_");
+    name = name.replace(/[^a-z0-9\-_]/g, "");
+    name = name.replace(/__+/g, "_");
+    $('comic_directory').setValue(name);
+  }
+}
+</script>
+
+<% form_for @comic do |f| %>
+  <%= f.label :name, "Name" %> <%= f.text_field :name, :onchange=>"set_directory();" %><br />
+  <%= f.label :base_url, "Basis-URL" %> <%= f.text_field :base_url %><br />
+  <%= f.label :method, "Methode" %> <%= f.select :method, [["Suche im HTML-Code", "search"]] %><br />
+  <%= f.label :search_type, "Suchart" %> <%= f.select :search_type, [["Suche via CSS-Selektor", "css"], ["Suche via XPath", "xpath"]] %><br />
+  <%= f.label :search_query, "Suchpfad" %> <%= f.text_field :search_query %><br />
+  <%= f.label :directory, "Zielverzeichnis" %> <%= f.text_field :directory %><br />
+  <%= f.label :enabled, "Aktiv" %> <%= f.check_box :enabled %><br />
+  <%= f.submit %>
+<% end %>
