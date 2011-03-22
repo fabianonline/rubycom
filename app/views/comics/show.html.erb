@@ -1,6 +1,6 @@
 <% @comics.each do |comic| %>
   <h1><%= h comic.name %></h1>
-  <% comic.strips.find(:all, :order=>:date, :conditions=>['DATE(date)=?', @date]).each do |strip| %>
+  <% comic.strips.by_date(@date).each do |strip| %>
     <%= image_tag strip.filepath, :alt=>strip.alt_tag, :title=>strip.title_tag %>
     <%= strip.filename %>
   <% end %>
