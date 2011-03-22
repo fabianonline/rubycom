@@ -1,7 +1,16 @@
+<%= link_to "<< Zurück", :date=>@date-1 %>
+<% if @date < Date.today %>
+  &bull; <%= link_to "Weiter >>", :date=>@date+1 %>
+<% end %>
+
 <% @comics.each do |comic| %>
   <h1><%= h comic.name %></h1>
   <% comic.strips.by_date(@date).each do |strip| %>
     <%= image_tag_for_strip strip %>
-    <%= strip.filename %>
   <% end %>
+<% end %>
+
+<%= link_to "<< Zurück", :date=>@date-1 %>
+<% if @date < Date.today %>
+  &bull; <%= link_to "Weiter >>", :date=>@date+1 %>
 <% end %>
