@@ -3,9 +3,13 @@ class ComicsController < ApplicationController
     @comics = Comic.all(:order=>"enabled DESC, name", :include=>:strips)
   end
 
-  def list
+  def day
+    unless params[:id]
+      date = Time.now.hour>=12 ? Date.today : Date.yesterday
+      redirect_to :controller=>:comics, :action=>:daily, :id=>date and return
+    end
+    @date = Date.parse(params[:id])
     @comics = Comic.enabled.all(:order=>:name)
-    @date = Date.today
   end
 
   def edit
