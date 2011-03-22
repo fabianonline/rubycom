@@ -9,11 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110307223917) do
+ActiveRecord::Schema.define(:version => 20110322181311) do
 
   create_table "comics", :force => true do |t|
     t.string   "name"
-    t.string   "base_url"
+    t.string   "base_url",     :default => "http://"
     t.string   "method"
     t.string   "search_type"
     t.string   "search_query"
