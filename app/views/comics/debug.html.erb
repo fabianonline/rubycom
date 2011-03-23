@@ -14,8 +14,12 @@
   <p><%= h @image_url %></p>
 
   <h2>Bild</h2>
-  <p>Folgendes Bild wurde gefunden:</p>
-  <p><img src="data:<%= @data[:content_type] %>;base64,<%= Base64.encode64(@data[:data]) %>" /></p>
+  <% if @get_image_data_error %>
+    <p>Bild konnte nicht geladen werden. Grund: <%= h @get_image_data_error %>
+  <% else %>
+    <p>Folgendes Bild wurde gefunden:</p>
+    <p><img src="data:<%= @data[:content_type] %>;base64,<%= Base64.encode64(@data[:data]) %>" /></p>
+  <% end %>
 
 <% end %>
 
