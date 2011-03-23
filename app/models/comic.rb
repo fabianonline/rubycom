@@ -57,7 +57,7 @@ class Comic < ActiveRecord::Base
   end
 
   def get_url(element)
-    URI.join(base_url, element["src"])
+    URI.join(base_url, element["src"]) rescue nil
   end
 
   def get_new_strip

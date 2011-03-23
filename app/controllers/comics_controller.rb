@@ -24,6 +24,10 @@ class ComicsController < ApplicationController
 
   def debug
     @comic = Comic.find(params[:id])
+    @element = @comic.get_img_element
+    return unless @element && @element.name=="img"
+    @image_url = @comic.get_url(@element)
+    @data = @comic.get_image_data(@image_url)
   end
 
   def update
