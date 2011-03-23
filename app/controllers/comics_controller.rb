@@ -18,6 +18,18 @@ class ComicsController < ApplicationController
     @comics = Comic.enabled.all(:order=>:name)
   end
 
+  def destroy
+    @comic = Comic.find(params[:id])
+    unless @comic
+      flash[:error] = "Invalid Comic-ID."
+    else
+      FileUtils.rm_r(@comic.image_path()) rescue ""
+      @comic.destroy
+      flash[:success] = "Erfolgreich gelöscht."
+    end
+    redirect_to comics_url
+  end
+
   def edit
     @comic = Comic.find(params[:id])
   end

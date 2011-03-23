@@ -35,9 +35,13 @@ class Comic < ActiveRecord::Base
     return self.strips.find_by_hash_value_and_bytes(hash, bytes)!=nil
   end
 
+  def image_path
+    RAILS_ROOT + "/public/comics/" + directory + "/"
+  end
+
   def save_image_data(data, url)
     require 'digest/md5'
-    dir = RAILS_ROOT + "/public/comics/" + directory + "/"
+    dir = image_path()
     file = Time.now.strftime("%Y%m%d-%H%M%S") + File.extname(url.path)
     FileUtils.mkdir_p(dir)
     File.open(dir + file, 'w') {|f| f.write(data)}

@@ -12,7 +12,8 @@
       <td><%= time_ago_in_words(comic.strips.last.date) rescue "Nie" %></td>
       <td><%= comic.strips.count %></td>
       <td><%= link_to "Debug-Ansicht", debug_comic_url(comic) %>
-          <%= link_to "bearbeiten", edit_comic_path(comic.id) %></td>
+          <%= link_to "bearbeiten", edit_comic_path(comic) %>
+          <%= link_to "Löschen", comic, :method=>:delete, :confirm=>"Wirklich löschen? Es werden auch alle Bilder und so gelöscht..." %></td>
     </tr>
   <% end %>
 </table>
