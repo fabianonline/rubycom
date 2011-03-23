@@ -27,7 +27,11 @@ class ComicsController < ApplicationController
     @element = @comic.get_img_element
     return unless @element && @element.name=="img"
     @image_url = @comic.get_url(@element)
-    @data = @comic.get_image_data(@image_url)
+    begin
+      @data = @comic.get_image_data(@image_url)
+    rescue RuntimeError=>bang
+      @get_image_data_error = bang.to_s
+    end
   end
 
   def update
