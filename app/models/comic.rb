@@ -2,6 +2,9 @@ class Comic < ActiveRecord::Base
   has_many :strips, :order=>:date, :dependent=>:destroy
   named_scope :enabled, :conditions=>{:enabled=>true}
 
+  validates_uniqueness_of :directory
+  validates_length_of :directory, :minimum=>1
+
   def self.update_all
     Comic.enabled.each {|comic| comic.get_new_strip}
   end
