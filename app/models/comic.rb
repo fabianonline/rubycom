@@ -17,12 +17,24 @@ class Comic < ActiveRecord::Base
 
   def get_image_data(url)
     require 'net/http'
-    request_url = url.path + (url.query ? "?#{url.query}" : "")
-    req = Net::HTTP::Get.new(request_url)
-    req.add_field("Referrer", base_url)
-    res = Net::HTTP.new(url.host, url.port).start do |http|
-      http.request(req)
+    remaining_redirects = 3
+    found = false
+    until found || remaining_redirects<=0
+      request_url = url.path + (url.query ? "?#{url.query}" : "")
+      req = Net::HTTP::Get.new(request_url)
+      req.add_field("Referrer", base_url)
+      res = Net::HTTP.new(url.host, url.port).start do |http|
+        http.request(req)
+      end
+      if res.header["location"]
+        url = URI.parse(res.header["location"])
+        remaining_redirects-=1
+      else
+        found = true
+      end
     end
+
+    raise "Too many redirects" if remaining_redirects<=0
 
     raise "Body length is 0" unless res.body.length>0
     raise "HTTP-Error: #{res.code} - #{res.message}" unless res.code=="200"
