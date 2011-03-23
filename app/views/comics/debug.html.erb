@@ -11,7 +11,9 @@
 
   <h2>Ergebnis der URL-Auswertung</h2>
   <p>Folgende URL wurde gefunden:</p>
-  <p><%= h @image_url %></p>
+  <p><%= h @original_image_url.to_s %></p>
+  <p>Umgeschriebene URL:</p>
+  <p><%= h @rewritten_image_url.to_s %></p>
 
   <h2>Bild</h2>
   <% if @get_image_data_error %>

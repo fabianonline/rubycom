@@ -14,8 +14,7 @@ class Comic < ActiveRecord::Base
 
   def get_image_data(url)
     require 'net/http'
-    request_url = url.path
-    request_url << '?' + url.query if url.query
+    request_url = url.path + (url.query ? "?#{url.query}" : "")
     req = Net::HTTP::Get.new(request_url)
     req.add_field("Referrer", base_url)
     res = Net::HTTP.new(url.host, url.port).start do |http|
@@ -24,7 +23,6 @@ class Comic < ActiveRecord::Base
 
     raise "Body length is 0" unless res.body.length>0
     raise "HTTP-Error: #{res.code} - #{res.message}" unless res.code=="200"
-    logger.debug(res.to_hash.inspect)
     return {:data=>res.body, :content_type=>res["content-type"]}
   end
 
@@ -63,11 +61,17 @@ class Comic < ActiveRecord::Base
     URI.join(base_url, element["src"]) rescue nil
   end
 
+  def rewrite_url(url)
+    return url unless regexp_search && regexp_search.length>0
+    URI.parse(url.to_s.gsub(Regexp.new(regexp_search), regexp_replace))
+  end
+
   def get_new_strip
     print "Updating #{name}."
     element = get_img_element
     raise "Selektiertes Element ist kein img-Element" unless element.name=="img"
     url = get_url(element)
+    url = rewrite_url(url)
     data = get_image_data(url)[:data]
     hash = calculate_hash_value(data)
     length = data.length

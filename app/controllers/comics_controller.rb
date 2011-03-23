@@ -26,9 +26,10 @@ class ComicsController < ApplicationController
     @comic = Comic.find(params[:id])
     @element = @comic.get_img_element
     return unless @element && @element.name=="img"
-    @image_url = @comic.get_url(@element)
+    @original_image_url = @comic.get_url(@element)
+    @rewritten_image_url = @comic.rewrite_url(@original_image_url)
     begin
-      @data = @comic.get_image_data(@image_url)
+      @data = @comic.get_image_data(@rewritten_image_url)
     rescue RuntimeError=>bang
       @get_image_data_error = bang.to_s
     end
