@@ -14,7 +14,9 @@ class Comic < ActiveRecord::Base
 
   def get_image_data(url)
     require 'net/http'
-    req = Net::HTTP::Get.new(url.path)
+    request_url = url.path
+    request_url << '?' + url.query if url.query
+    req = Net::HTTP::Get.new(request_url)
     req.add_field("Referrer", base_url)
     res = Net::HTTP.new(url.host, url.port).start do |http|
       http.request(req)
