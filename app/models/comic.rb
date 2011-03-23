@@ -6,7 +6,13 @@ class Comic < ActiveRecord::Base
   validates_length_of :directory, :minimum=>1
 
   def self.update_all
-    Comic.enabled.each {|comic| comic.get_new_strip}
+    Comic.enabled.each do |comic|
+      begin
+        comic.get_new_strip
+      rescue => msg
+        puts "Exception: #{msg}"
+      end
+    end
   end
 
   def get_img_element
