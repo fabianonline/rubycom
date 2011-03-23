@@ -21,7 +21,7 @@ class Comic < ActiveRecord::Base
     end
 
     raise "Body length is 0" unless res.body.length>0
-    raise "HTTP-Error: #{res.code} - #{res.message}" unless res.code==200
+    raise "HTTP-Error: #{res.code} - #{res.message}" unless res.code=="200"
     logger.debug(res.to_hash.inspect)
     return {:data=>res.body, :content_type=>res["content-type"]}
   end
