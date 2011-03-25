@@ -37,7 +37,12 @@ class ComicsController < ApplicationController
   def debug
     @comic = Comic.find(params[:id])
     @element = @comic.get_img_element
-    return unless @element && @element.name=="img"
+    unless @element && @element.name=="img"
+      require 'open-uri'
+      require 'nokogiri'
+      @html = Nokogiri::HTML(open(@comic.base_url)).to_xhtml
+      return
+    end
     @original_image_url = @comic.get_url(@element)
     @rewritten_image_url = @comic.rewrite_url(@original_image_url)
     begin

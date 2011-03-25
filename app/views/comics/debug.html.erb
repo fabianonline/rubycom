@@ -1,7 +1,8 @@
 <h1>Debug-Ansicht zu <%= h @comic.name %></h1>
 <h2>Element-Abfrage</h2>
 <% if @element==nil %>
-  <p>Es wurd kein passendes Element gefunden!</p>
+  <p>Es wurd kein passendes Element gefunden! HTML-Code:</p>
+  <pre><%= h @html %></pre>
 <% elsif @element.name!="img" %>
   <p>Es wurde ein Element gefunden, welches jedoch kein img-Element ist:</p>
   <p><%= h @element %>

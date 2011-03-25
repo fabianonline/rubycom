@@ -119,7 +119,7 @@ class Comic < ActiveRecord::Base
   def get_new_strip
     print "Updating #{name}... "
     element = get_img_element
-    raise "Selektiertes Element ist kein img-Element" unless element.name=="img"
+    raise "Selektiertes Element ist kein img-Element" unless element && element.name=="img"
     url = get_url(element)
     url = rewrite_url(url)
     data = get_image_data(url)[:data]
