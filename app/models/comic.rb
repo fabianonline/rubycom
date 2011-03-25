@@ -6,6 +6,7 @@ class Comic < ActiveRecord::Base
   validates_length_of :directory, :minimum=>1
 
   def self.update_all
+    STDOUT.sync = true
     Comic.enabled.each do |comic|
       begin
         comic.get_new_strip
@@ -92,7 +93,7 @@ class Comic < ActiveRecord::Base
   end
 
   def get_new_strip
-    print "Updating #{name}."
+    print "Updating #{name}... "
     element = get_img_element
     raise "Selektiertes Element ist kein img-Element" unless element.name=="img"
     url = get_url(element)
