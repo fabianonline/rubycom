@@ -1,6 +1,8 @@
 <%= link_to "<< Zurück", :date=>@date-1 %>
-<% if @date < Date.today %>
+<% if @date<Date.today %>
   &bull; <%= link_to "Weiter >>", :date=>@date+1 %>
+<% elsif @date==Date.today && Time.now.hour>12 %>
+  &bull; <%= link_to "Weiter (vorläufig) >>", :date=>@date+1 %>
 <% end %>
 
 <% @comics.each do |comic| %>

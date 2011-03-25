@@ -6,7 +6,7 @@ class ComicsController < ApplicationController
   def show
     redirect_to :page=>1 unless params[:page]
     @comic = Comic.find(params[:id])
-    @strips = Strip.paginate_by_comic_id @comic.id, :page=>params[:page], :order=>"date DESC", :per_page=>25
+    @strips = Strip.paginate_by_comic_id @comic.id, :page=>params[:page], :order=>:date, :per_page=>25
   end
 
   def day
