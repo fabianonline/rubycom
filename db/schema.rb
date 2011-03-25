@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110325185518) do
+ActiveRecord::Schema.define(:version => 20110325193551) do
 
   create_table "comics", :force => true do |t|
     t.string   "name"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20110325185518) do
     t.string   "status",             :default => "enabled"
     t.string   "last_error_message"
     t.datetime "last_error_at"
-    t.integer  "error_count"
+    t.integer  "error_count",        :default => 0,         :null => false
   end
 
   create_table "strips", :force => true do |t|
