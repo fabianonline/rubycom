@@ -7,7 +7,7 @@
   </tr>
 
   <% @comics.each do |comic| %>
-    <tr>
+    <tr class="<%= cycle("odd", "even") %>">
       <td><%= link_to comic.name, comic %></td>
       <td><%= time_ago_in_words(comic.strips.last.date) rescue "Nie" %></td>
       <td><%= comic.strips.count %></td>
