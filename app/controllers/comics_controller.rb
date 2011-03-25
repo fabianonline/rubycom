@@ -1,6 +1,6 @@
 class ComicsController < ApplicationController
   def index
-    @comics = Comic.all(:order=>"enabled DESC, name", :include=>:strips)
+    @comics = Comic.all(:order=>"name", :include=>:strips)
   end
 
   def show

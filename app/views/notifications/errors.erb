@@ -1,0 +1,14 @@
+Hallo Admin,
+
+ein paar Comics machten beim Update Probleme:
+
+<% @comics.each do |comic| %>
+  * <%= comic[:comic].name %>
+    <%= comic[:message] %>
+    <%= comic[:actions] %>
+
+<% end %>
+
+
+Schöne Grüße,
+Die Maschinen

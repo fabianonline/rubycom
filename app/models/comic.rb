@@ -1,18 +1,42 @@
 class Comic < ActiveRecord::Base
   has_many :strips, :order=>:date, :dependent=>:destroy
-  named_scope :enabled, :conditions=>{:enabled=>true}
+  named_scope :enabled, :conditions=>{:status=>"enabled"}
 
   validates_uniqueness_of :directory
   validates_length_of :directory, :minimum=>1
 
   def self.update_all
     STDOUT.sync = true
+    errored_comics = []
     Comic.enabled.each do |comic|
       begin
         comic.get_new_strip
       rescue => msg
         puts "Exception: #{msg}"
+        temp = {}
+        temp[:comic] = comic
+        comic.last_error_message = msg
+        temp[:message] = msg
+        comic.last_error_at = Time.now
+        comic.error_count += 1
+        if comic.error_count>5
+          comic.status = "errored"
+          temp[:actions] = "Comic wurde deaktiviert!"
+        else
+          temp[:actions] = "Fehler ##{comic.error_count}. Nach 5 Fehlern wird der Comic deaktiviert."
+        end
+        errored_comics << temp
+        comic.save
+      else
+        comic.error_count = 0
+        comic.save
       end
+    end
+
+    unless errored_comics.empty?
+      print "Es sind Fehler aufgetreten => verschicke Mail... "
+      Notifications.deliver_errors(errored_comics) rescue nil
+      puts "Done."
     end
   end
 

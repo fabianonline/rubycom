@@ -20,6 +20,6 @@ function set_directory() {
   <%= f.label :regexp_search, "Regexp-Suche" %> <%= f.text_field :regexp_search %><br />
   <%= f.label :regexp_replace, "Regexp-Ersatz" %> <%= f.text_field :regexp_replace %><br />
   <%= f.label :directory, "Zielverzeichnis" %> <%= f.text_field :directory %><br />
-  <%= f.label :enabled, "Aktiv" %> <%= f.check_box :enabled %><br />
+  <%= f.label :status, "Status" %> <%= f.select :status, [["Aktiv", "enabled"], ["Inaktiv", "disabled"]] %><br />
   <%= f.submit %>
 <% end %>
