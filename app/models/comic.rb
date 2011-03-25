@@ -85,10 +85,10 @@ class Comic < ActiveRecord::Base
     RAILS_ROOT + "/public/comics/" + directory + "/"
   end
 
-  def save_image_data(data, url)
+  def save_image_data(data, url, extension)
     require 'digest/md5'
     dir = image_path()
-    file = Time.now.strftime("%Y%m%d-%H%M%S") + File.extname(url.path)
+    file = Time.now.strftime("%Y%m%d-%H%M%S") + "." + extension
     FileUtils.mkdir_p(dir)
     File.open(dir + file, 'w') {|f| f.write(data)}
     return file
@@ -107,6 +107,27 @@ class Comic < ActiveRecord::Base
     strip.save
   end
 
+  def analyze_image_data(data)
+    require 'RMagick'
+    img = nil
+    begin
+      img = Magick::Image.from_blob(data)
+    rescue
+      raise "RMagick konnte das heruntergeladene Bild nicht analysieren."
+    end
+    
+    raise "Bild ist zu klein (Breite oder Höhe < 100px)." if img[0].rows<100 || img[0].columns<100
+
+    ext = case img[0].format
+      when "PNG" then "png"
+      when "JPEG" then "jpg"
+      when "GIF" then "gif"
+      else raise "Unbekanntes Format: #{img[0].format}"
+    end
+
+    return ext
+  end
+
   def get_url(element)
     URI.join(base_url, element["src"]) rescue nil
   end
@@ -123,10 +144,11 @@ class Comic < ActiveRecord::Base
     url = get_url(element)
     url = rewrite_url(url)
     data = get_image_data(url)[:data]
+    extension = analyze_image_data(data)
     hash = calculate_hash_value(data)
     length = data.length
     unless image_data_known? hash, length
-      filename = save_image_data(data, url)
+      filename = save_image_data(data, url, extension)
       create_strip(filename, element, url, hash, length)
       puts "Done."
     else
