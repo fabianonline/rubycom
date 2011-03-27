@@ -25,7 +25,7 @@ class Comic < ActiveRecord::Base
         else
           temp[:actions] = "Fehler ##{comic.error_count}. Nach 5 Fehlern wird der Comic deaktiviert."
         end
-        errored_comics << temp
+        errored_comics << temp if comic.error_count>1 # error_count wurde bereits erhöht - 1 bedeutet, dass der Comic das erste Mal Probleme macht. Dieses erste Mal ignorieren wir.
         comic.save
       else
         comic.error_count = 0
