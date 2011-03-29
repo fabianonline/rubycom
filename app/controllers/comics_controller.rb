@@ -10,12 +10,17 @@ class ComicsController < ApplicationController
   end
 
   def day
-    unless params[:date]
+    unless params[:date] && params[:date]!="today"
       date = Time.now.hour>=12 ? Date.today : Date.yesterday
       redirect_to :date=>date and return
     end
     @date = Date.parse(params[:date])
     @comics = Comic.enabled.all(:order=>:name)
+  end
+
+  def daylist
+    @start = Strip.find(:first, :order=>:date).date.to_date
+    @end = (Time.now.hour>=12 ? Date.tomorrow : Date.today)
   end
 
   def destroy
