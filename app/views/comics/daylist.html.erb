@@ -1,6 +1,6 @@
 <% @end.downto(@start) do |day| %>
   <%= link_to day, :action=>:day, :date=>day %>
-  <% if day==Date.today && Time.now.hour<12 %>
+  <% if day==Date.tomorrow || (day==Date.today && Time.now.hour<12) %>
     (vorläufig!)
   <% end %>
   <br />
