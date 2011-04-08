@@ -59,8 +59,7 @@ class ComicsController < ApplicationController
 
   def update
     @comic = Comic.find(params[:id])
-    logger.debug("Comic: #{@comic.inspect}")
-    logger.debug("Attributes: #{params[:comic].inspect}")
+    params[:comic][:error_count] = 0
     if @comic.update_attributes(params[:comic])
       flash[:succes] = "Comic erfolgreich geändert."
       redirect_to debug_comic_url(@comic)
