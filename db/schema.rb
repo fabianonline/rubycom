@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110408075726) do
+ActiveRecord::Schema.define(:version => 20110408212510) do
 
   create_table "comics", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20110408075726) do
     t.string   "last_error_message"
     t.datetime "last_error_at"
     t.integer  "error_count",        :default => 0,         :null => false
+    t.boolean  "ignore_size",        :default => false
   end
 
   add_index "comics", ["name"], :name => "index_comics_on_name"

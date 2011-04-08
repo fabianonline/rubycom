@@ -116,7 +116,7 @@ class Comic < ActiveRecord::Base
       raise "RMagick konnte das heruntergeladene Bild nicht analysieren."
     end
     
-    raise "Bild ist zu klein (Breite oder Höhe < 100px)." if img[0].rows<100 || img[0].columns<100
+    raise "Bild ist zu klein (Breite oder Höhe < 100px)." if !ignore_size && (img[0].rows<100 || img[0].columns<100)
 
     ext = case img[0].format
       when "PNG" then "png"
