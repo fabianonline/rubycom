@@ -129,7 +129,8 @@ class Comic < ActiveRecord::Base
   end
 
   def get_url(element)
-    URI.join(base_url, element["src"]) rescue nil
+    base_href_value = element.document.css("head base")[0][:href] rescue ""
+    URI.join(base_url, base_href_value, element["src"]) rescue nil
   end
 
   def rewrite_url(url)
