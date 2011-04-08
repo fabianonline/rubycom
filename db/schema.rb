@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110325193551) do
+ActiveRecord::Schema.define(:version => 20110408075726) do
 
   create_table "comics", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20110325193551) do
     t.integer  "error_count",        :default => 0,         :null => false
   end
 
+  add_index "comics", ["name"], :name => "index_comics_on_name"
+
   create_table "strips", :force => true do |t|
     t.integer  "comic_id"
     t.datetime "date"
@@ -41,5 +43,9 @@ ActiveRecord::Schema.define(:version => 20110325193551) do
     t.integer  "bytes"
     t.string   "filename"
   end
+
+  add_index "strips", ["comic_id"], :name => "index_strips_on_comic_id"
+  add_index "strips", ["date"], :name => "index_strips_on_date"
+  add_index "strips", ["hash_value"], :name => "index_strips_on_hash_value"
 
 end
