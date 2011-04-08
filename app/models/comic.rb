@@ -15,7 +15,7 @@ class Comic < ActiveRecord::Base
         puts "Exception: #{msg}"
         temp = {}
         temp[:comic] = comic
-        comic.last_error_message = msg
+        comic.last_error_message = msg.to_s
         temp[:message] = msg
         comic.last_error_at = Time.now
         comic.error_count += 1
