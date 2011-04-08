@@ -9,6 +9,7 @@ class Comic < ActiveRecord::Base
     STDOUT.sync = true
     errored_comics = []
     Comic.enabled.each do |comic|
+      print "."
       begin
         comic.get_new_strip
       rescue => msg
@@ -36,8 +37,8 @@ class Comic < ActiveRecord::Base
     unless errored_comics.empty?
       print "Es sind Fehler aufgetreten => verschicke Mail... "
       Notifications.deliver_errors(errored_comics) rescue nil
-      puts "Done."
     end
+    puts " Done."
   end
 
   def get_img_element
