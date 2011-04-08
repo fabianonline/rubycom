@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110408212510) do
+ActiveRecord::Schema.define(:version => 20110408214337) do
 
   create_table "comics", :force => true do |t|
     t.string   "name"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20110408212510) do
     t.datetime "date"
     t.string   "url"
     t.string   "hash_value"
-    t.string   "title_tag"
-    t.string   "alt_tag"
+    t.text     "title_tag"
+    t.text     "alt_tag"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "bytes"
