@@ -41,20 +41,7 @@ class ComicsController < ApplicationController
 
   def debug
     @comic = Comic.find(params[:id])
-    @element = @comic.get_img_element
-    unless @element && @element.name=="img"
-      require 'open-uri'
-      require 'nokogiri'
-      @html = Nokogiri::HTML(open(@comic.base_url)).to_xhtml
-      return
-    end
-    @original_image_url = @comic.get_url(@element)
-    @rewritten_image_url = @comic.rewrite_url(@original_image_url)
-    begin
-      @data = @comic.get_image_data(@rewritten_image_url)
-    rescue RuntimeError=>bang
-      @get_image_data_error = bang.to_s
-    end
+    @result = @comic.get_new_strip(:debug=>true)
   end
 
   def update

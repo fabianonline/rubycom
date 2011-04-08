@@ -137,22 +137,39 @@ class Comic < ActiveRecord::Base
     URI.parse(url.to_s.gsub(Regexp.new(regexp_search), regexp_replace))
   end
 
-  def get_new_strip
-    print "Updating #{name}... "
-    element = get_img_element
-    raise "Selektiertes Element ist kein img-Element" unless element && element.name=="img"
-    url = get_url(element)
-    url = rewrite_url(url)
-    data = get_image_data(url)[:data]
-    extension = analyze_image_data(data)
-    hash = calculate_hash_value(data)
-    length = data.length
+  def get_new_strip(options={})
+    do_debug = options[:debug] || false
+    debug_data = {}
+    begin
+      element = get_img_element
+      debug_data[:element] = element
+      debug_data[:document] = element.document.to_xhtml
+      raise "Selektiertes Element ist kein img-Element" unless element && element.name=="img"
+      url = get_url(element)
+      debug_data[:url_original] = url
+      url = rewrite_url(url)
+      debug_data[:url_rewritten] = url
+      all_data = get_image_data(url)
+      data = all_data[:data]
+      extension = analyze_image_data(data)
+      debug_data[:image_data] = all_data
+      debug_data[:image_extension] = extension
+      hash = calculate_hash_value(data)
+      debug_data[:image_hash] = hash
+      length = data.length
+      debug_data[:image_size] = length
+    rescue => bang
+      raise bang unless do_debug
+      debug_data[:exception] = bang
+    end
+    return debug_data if do_debug
+
     unless image_data_known? hash, length
       filename = save_image_data(data, url, extension)
       create_strip(filename, element, url, hash, length)
-      puts "Done."
+      return true
     else
-      puts "Known."
+      return false
     end
   end
 end

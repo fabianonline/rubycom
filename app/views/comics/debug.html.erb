@@ -1,27 +1,27 @@
 <h1>Debug-Ansicht zu <%= h @comic.name %></h1>
 <h2>Element-Abfrage</h2>
-<% if @element==nil %>
+<% if @result[:element]==nil %>
   <p>Es wurd kein passendes Element gefunden! HTML-Code:</p>
-  <pre><%= h @html %></pre>
-<% elsif @element.name!="img" %>
+  <pre><%= h @result[:document] %></pre>
+<% elsif @result[:element].name!="img" %>
   <p>Es wurde ein Element gefunden, welches jedoch kein img-Element ist:</p>
-  <p><%= h @element %>
+  <p><%= h @result[:element] %>
 <% else %>
   <p>Die Suchanfrage auf der Seite ergibt folgendes Element:</p>
-  <p><%= h @element %></p>
+  <p><%= h @result[:element] %></p>
 
   <h2>Ergebnis der URL-Auswertung</h2>
   <p>Folgende URL wurde gefunden:</p>
-  <p><%= h @original_image_url.to_s %></p>
+  <p><%= h @result[:url_original].to_s %></p>
   <p>Umgeschriebene URL:</p>
-  <p><%= h @rewritten_image_url.to_s %></p>
+  <p><%= h @result[:url_rewritten].to_s %></p>
 
   <h2>Bild</h2>
-  <% if @get_image_data_error %>
-    <p>Bild konnte nicht geladen werden. Grund: <%= h @get_image_data_error %>
+  <% unless @result[:image_data] %>
+    <p>Bild konnte nicht geladen werden. Grund: <%= h @result[:exception] %>
   <% else %>
     <p>Folgendes Bild wurde gefunden:</p>
-    <p><img src="data:<%= @data[:content_type] %>;base64,<%= Base64.encode64(@data[:data]) %>" /></p>
+    <p><img src="data:<%= @result[:image_data][:content_type] %>;base64,<%= Base64.encode64(@result[:image_data][:data]) %>" /></p>
   <% end %>
 
 <% end %>
