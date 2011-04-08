@@ -18,3 +18,11 @@ tr.odd {
 tr.even {
   background-color: #bbf;
 }
+
+tr.comic.disabled {
+  background-color: #aaa !important;
+}
+
+tr.comic.errors {
+  background-color: #faa;
+}
