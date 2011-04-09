@@ -1,9 +1,9 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Letzter Comic</th>
-    <th>Anzahl Comics</th>
-    <th>Fehlerzähler</th>
+    <th>Anzahl</th>
+    <th>Alter</th>
+    <th>Fehler</th>
     <th>Letzter Fehler</th>
     <th>Aktionen</th>
   </tr>
@@ -11,14 +11,14 @@
   <% @comics.each do |comic| %>
     <tr class="comic <%= cycle("odd", "even") %> <%= comic.status %> <%= comic.error_count>0?"errors":"" %>">
       <td><%= link_to comic.name, comic %></td>
-      <td><%= time_ago_in_words(comic.strips.last.date) rescue "Nie" %></td>
       <td><%= comic.strips.count %></td>
+      <td><%= time_ago_in_words(comic.strips.last.date) rescue "Nie" %></td>
       <td><%= comic.error_count %></td>
       <td><%= comic.last_error_message %></td>
-      <td><%= link_to image_tag("icons/picture_edit.png", :title=>"Comic bearbeiten"), edit_comic_path(comic) %>
-          <%= link_to image_tag("icons/bug.png", :title=>"Debug-Ansicht"), debug_comic_url(comic) %>
-          <%= link_to image_tag("icons/picture_delete.png", :title=>"Löschen"), comic, :method=>:delete, :confirm=>"Wirklich löschen? Es werden auch alle Bilder und so gelöscht..." %>
-          <%= link_to image_tag("icons/arrow_refresh.png", :title=>"Update"), comic_update_url(comic) %>
+      <td><%= link_to image_tag("icons/picture_edit.png", :title=>"Comic bearbeiten", :class=>"button"), edit_comic_path(comic) %>
+          <%= link_to image_tag("icons/bug.png", :title=>"Debug-Ansicht", :class=>"button"), debug_comic_url(comic) %>
+          <%= link_to image_tag("icons/picture_delete.png", :title=>"Löschen", :class=>"button"), comic, :method=>:delete, :confirm=>"Wirklich löschen? Es werden auch alle Bilder und so gelöscht..." %>
+          <%= link_to image_tag("icons/arrow_refresh.png", :title=>"Update", :class=>"button"), comic_update_url(comic) %>
           </td>
     </tr>
   <% end %>
