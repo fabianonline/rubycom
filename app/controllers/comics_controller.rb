@@ -18,6 +18,20 @@ class ComicsController < ApplicationController
     @comics = Comic.enabled.all(:order=>:name)
   end
 
+  def get_new_strip
+    comic = Comic.find(params[:id])
+    begin
+      if comic.get_new_strip
+        flash[:success] = "Update vom \"#{h comic.name}\" erfolgreich."
+      else
+        flash[:notice] = "Aktueller Strip ist bereits bekannt."
+      end
+    rescue => bang
+      flash[:error] = "Fehler: #{bang.to_s}"
+    end
+    redirect_to comics_url
+  end
+
   def daylist
     @start = Strip.find(:first, :order=>:date).date.to_date
     @end = (Time.now.hour>=12 ? Date.tomorrow : Date.today)
