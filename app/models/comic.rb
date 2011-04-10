@@ -54,7 +54,9 @@ class Comic < ActiveRecord::Base
     until found || remaining_redirects<=0
       request_url = url.path + (url.query ? "?#{url.query}" : "")
       req = Net::HTTP::Get.new(request_url)
-      req.add_field("Referrer", base_url)
+      req.add_field("Referer", base_url)
+      req.add_field("Accept", "image/png,image/*;q=0.8,*/*;q=0.5")
+      req.add_field("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0")
       res = Net::HTTP.new(url.host, url.port).start do |http|
         http.request(req)
       end
