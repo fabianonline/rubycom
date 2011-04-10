@@ -78,7 +78,7 @@ class Comic < ActiveRecord::Base
 
     raise "Body length is 0" unless res.body.length>0
     raise "HTTP-Error: #{res.code} - #{res.message}" unless res.code=="200"
-    return {:data=>res.body, :content_type=>res["content-type"]}
+    return {:data=>res.body, :content_type=>res["content-type"], :url=>url}
   end
 
   def calculate_hash_value(data)
@@ -160,9 +160,9 @@ class Comic < ActiveRecord::Base
       url = rewrite_url(url)
       debug_data[:url_rewritten] = url
       all_data = get_image_data(url)
+      debug_data[:image_data] = all_data
       data = all_data[:data]
       extension = analyze_image_data(data)
-      debug_data[:image_data] = all_data
       debug_data[:image_extension] = extension
       hash = calculate_hash_value(data)
       debug_data[:image_hash] = hash
