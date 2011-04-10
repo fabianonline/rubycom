@@ -22,7 +22,7 @@ class ComicsController < ApplicationController
     comic = Comic.find(params[:id])
     begin
       if comic.get_new_strip
-        flash[:success] = "Update vom \"#{h comic.name}\" erfolgreich."
+        flash[:success] = "Update vom \"#{comic.name}\" erfolgreich."
       else
         flash[:notice] = "Aktueller Strip ist bereits bekannt."
       end
