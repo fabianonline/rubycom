@@ -63,6 +63,12 @@ class Comic < ActiveRecord::Base
       if res.header["location"]
         url = URI.parse(res.header["location"])
         remaining_redirects-=1
+      elsif res["content-type"].match(/^text\//)
+        doc = Nokogiri::HTML.parse(res.body)
+        elm = doc.css("img").first
+        raise "Got HTML page" unless elm
+        url = URI.join(url.to_s, elm["src"])
+        remaining_redirects-=1
       else
         found = true
       end
