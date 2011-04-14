@@ -41,9 +41,17 @@ class Comic < ActiveRecord::Base
     puts " Done."
   end
 
-  def get_img_element
+  def get_html
     require 'open-uri'
-    doc = Nokogiri::HTML(open(base_url))
+    html = ''
+    open(base_url) do |f|
+      html = f.read
+    end
+    return html
+  end
+
+  def get_img_element(html)
+    doc = Nokogiri::HTML(html)
     doc.css(search_query).first
   end
 
@@ -151,10 +159,11 @@ class Comic < ActiveRecord::Base
     do_debug = options[:debug] || false
     debug_data = {}
     begin
-      element = get_img_element
+      document = get_html
+      debug_data[:document] = document
+      element = get_img_element(document)
       debug_data[:element] = element
       raise "Selektiertes Element ist kein img-Element" unless element && element.name=="img"
-      debug_data[:document] = element.document.to_xhtml
       url = get_url(element)
       debug_data[:url_original] = url
       url = rewrite_url(url)
