@@ -153,8 +153,8 @@ class Comic < ActiveRecord::Base
     begin
       element = get_img_element
       debug_data[:element] = element
-      debug_data[:document] = element.document.to_xhtml
       raise "Selektiertes Element ist kein img-Element" unless element && element.name=="img"
+      debug_data[:document] = element.document.to_xhtml
       url = get_url(element)
       debug_data[:url_original] = url
       url = rewrite_url(url)
