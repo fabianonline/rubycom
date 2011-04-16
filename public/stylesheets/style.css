@@ -38,6 +38,12 @@ th, td {
   padding: 0px 3px;
 }
 
+img.strip {
+  display:block;
+  padding-bottom: 25px;
+  padding-left: 25px;
+}
+
 .button {
   border-width: 1px;
   border-style: solid;
