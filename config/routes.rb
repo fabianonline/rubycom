@@ -37,7 +37,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.day 'day/:date', :controller=>:comics, :action=>:day
   map.daylist 'day', :controller=>:comics, :action=>:daylist
-  map.root :controller=>:comics, :action=>:day
+  map.root :controller=>:comics, :action=>:daylist
   map.connect 'comics/:id/page/:page', :controller=>:comics, :action=>:show
   map.comic_update 'comics/:id/update', :controller=>:comics, :action=>:get_new_strip
   map.resources :comics
