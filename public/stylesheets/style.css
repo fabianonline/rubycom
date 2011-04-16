@@ -44,6 +44,10 @@ img.strip {
   padding-left: 25px;
 }
 
+a.inactive {
+  color: #aaa !important;
+}
+
 .button {
   border-width: 1px;
   border-style: solid;
