@@ -15,7 +15,7 @@ class ComicsController < ApplicationController
       redirect_to :date=>date and return
     end
     @date = Date.parse(params[:date])
-    @comics = Comic.enabled.all(:order=>:name)
+    @comics = Comic.enabled.all(:order=>:name, :include=>:strips).select{|c| c.strips.by_date(@date).count>0}
   end
 
   def get_new_strip
