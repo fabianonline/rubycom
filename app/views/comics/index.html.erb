@@ -1,3 +1,37 @@
+<script type="text/javascript">
+function update_strip(strip) {
+  var img_spinner = '<%= image_path("icons/spinner.gif") %>';
+  var img_error = '<%= image_path("icons/exclamation.png") %>';
+  var img_okay = '<%= image_path("icons/add.png") %>';
+  var img_no_new = '<%= image_path("icons/tick.png") %>';
+  var url = strip.attributes["data-comic-update-url"].value;
+  var image = $(strip).children('img')[0];
+  image.src=img_spinner;
+  $.ajax({
+    async: false,
+    dataType: "json",
+    url: url,
+    success: function(data) {
+    if (!data.success) {
+      image.src = img_error;
+      image.title = data.error;
+    } else {
+      image.src = (data.new_comic ? img_okay : img_no_new);
+    }
+  }});
+}
+
+function update_all_strips() {
+  var img_wait = '<%= image_path("icons/hourglass.png") %>';
+  $('.comic_update_link img').attr('src', img_wait);
+  var comics = $('.comic_update_link');
+  for(var i=0; i<comics.length; i++) {
+    update_strip(comics[i]);
+  }
+}
+</script>
+
+
 <table>
   <tr>
     <th>Name</th>
@@ -18,10 +52,13 @@
       <td><%= link_to image_tag("icons/picture_edit.png", :title=>"Comic bearbeiten", :class=>"button"), edit_comic_path(comic) %>
           <%= link_to image_tag("icons/bug.png", :title=>"Debug-Ansicht", :class=>"button"), debug_comic_url(comic) %>
           <%= link_to image_tag("icons/picture_delete.png", :title=>"Löschen", :class=>"button"), comic, :method=>:delete, :confirm=>"Wirklich löschen? Es werden auch alle Bilder und so gelöscht..." %>
-          <%= link_to image_tag("icons/arrow_refresh.png", :title=>"Update", :class=>"button"), comic_update_url(comic) %>
+          <a href="#" class="comic_update_link" data-comic-update-url="<%= h comic_update_url(comic, :format=>:json) %>" onClick="update_strip(this); return false;">
+            <%= image_tag("icons/arrow_refresh.png", :title=>"Update", :class=>"button") %>
+          </a>
           </td>
     </tr>
   <% end %>
 </table>
 
-<%= link_to "Comic hinzufügen", new_comic_url %>
+<%= link_to "Comic hinzufügen", new_comic_url %><br />
+<a href="#" onClick="update_all_strips(); return false;">Alle Comics updaten</a>
