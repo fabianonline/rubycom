@@ -52,9 +52,17 @@ class Comic < ActiveRecord::Base
 
   def get_img_element(html)
     doc = Nokogiri::HTML(html)
-    # override empty search_query to process rss feeds
-    query = search_query.length>0 ? search_query : "item"
-    doc.css(query).first
+    unless search_query.empty?
+      # Ganz normale HTML-Suche.
+      return doc.css(search_query).first
+    else
+      # RSS-Feed. IMG-Element nachbauen.
+      element = doc.css("item").first
+      new_elm = Nokogiri::XML::Node.new("img", doc)
+      new_elm["src"] = element.css("enclosure").first.attribute("url").to_s
+      new_elm["title"] = element.css("description").first.text rescue ""
+      return new_elm
+    end
   end
 
   def get_image_data(url)
@@ -115,7 +123,7 @@ class Comic < ActiveRecord::Base
 
   def create_strip(filename, element, url, hash, length)
     strip = Strip.new
-    strip.title_tag = element["title"] || element.css("description").first.text || "" rescue ""
+    strip.title_tag = element["title"] || ""
     strip.alt_tag = element["alt"] || ""
     strip.filename = filename
     strip.url = url.to_s
@@ -149,7 +157,7 @@ class Comic < ActiveRecord::Base
 
   def get_url(element)
     base_href_value = element.document.css("head base")[0][:href] rescue ""
-    URI.join(base_url, base_href_value, element["src"] || element.css("enclosure").first.attribute("url").to_s) rescue nil
+    URI.join(base_url, base_href_value, element["src"]) rescue nil
   end
 
   def rewrite_url(url)
@@ -165,7 +173,7 @@ class Comic < ActiveRecord::Base
       debug_data[:document] = document
       element = get_img_element(document)
       debug_data[:element] = element
-      raise "Selektiertes Element ist kein img-Element" unless element && %w(img item).include?(element.name)
+      raise "Selektiertes Element ist kein img-Element" unless element && element.name=="img"
       url = get_url(element)
       debug_data[:url_original] = url
       url = rewrite_url(url)

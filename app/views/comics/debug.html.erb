@@ -3,7 +3,7 @@
 <% if @result[:element]==nil %>
   Es wurd kein passendes Element gefunden! HTML-Code:<br />
   <pre><%= h @result[:document] %></pre>
-<% elsif !%w(img item).include?(@result[:element].name) %>
+<% elsif @result[:element].name!="img" %>
   Es wurde ein Element gefunden, welches jedoch kein img-Element ist:<br />
   <%= h @result[:element] %>
 <% else %>
