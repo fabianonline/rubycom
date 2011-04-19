@@ -9,7 +9,7 @@ de:
       default: "%d.%m.%Y"
       short: "%e. %B"
       long: "%e. %B %Y"
-      very_long: "%A, %e. %B. %Y"
+      very_long: "%A, %e. %B %Y"
       only_day: "%e"
 
     day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
