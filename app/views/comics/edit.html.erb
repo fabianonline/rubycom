@@ -16,7 +16,7 @@ function set_directory() {
   <%= f.label :base_url, "Basis-URL" %> <%= f.text_field :base_url %><br />
   <%= f.label :method, "Methode" %> <%= f.select :method, [["Suche im HTML-Code", "search"]] %><br />
   <%= f.label :search_type, "Suchart" %> <%= f.select :search_type, [["Suche via CSS-Selektor", "css"], ["Suche via XPath", "xpath"]] %><br />
-  <%= f.label :search_query, "Suchpfad" %> <%= f.text_field :search_query %><br />
+  <%= f.label :search_query, "Suchpfad" %> <%= f.text_field :search_query %> (für RSS-Feeds einfach leer lassen)<br />
   <%= f.label :regexp_search, "Regexp-Suche" %> <%= f.text_field :regexp_search %><br />
   <%= f.label :regexp_replace, "Regexp-Ersatz" %> <%= f.text_field :regexp_replace %><br />
   <%= f.label :directory, "Zielverzeichnis" %> <%= f.text_field :directory %><br />
