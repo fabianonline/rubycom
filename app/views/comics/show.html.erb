@@ -1,9 +1,8 @@
 <%= link_to "Verwaltung", :action=>:index %><br />
 <h1><%= @comic.name %></h1>
 <% @strips.each do |strip| %>
-  <%= strip.date %><br />
+  <h2><%= l strip.date.to_date, :format=>:very_long %></h2>
   <%= image_tag_for_strip strip %>
-  <br /><br />
 <% end %>
 
 <%= will_paginate @strips %>

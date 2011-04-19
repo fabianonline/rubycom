@@ -11,7 +11,7 @@
 <h1><%= l @date, :format=>:very_long %></h1>
 
 <% @comics.each do |comic| %>
-  <h2><%= h comic.name %></h2>
+  <h2><%= link_to comic.name, comic_url(comic) %></h2>
   <% comic.strips.by_date(@date).each do |strip| %>
     <%= image_tag_for_strip strip %>
   <% end %>
