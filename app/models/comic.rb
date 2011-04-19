@@ -115,7 +115,7 @@ class Comic < ActiveRecord::Base
 
   def create_strip(filename, element, url, hash, length)
     strip = Strip.new
-    strip.title_tag = element["title"] || element.css("description").first.text || ""
+    strip.title_tag = element["title"] || element.css("description").first.text || "" rescue ""
     strip.alt_tag = element["alt"] || ""
     strip.filename = filename
     strip.url = url.to_s
