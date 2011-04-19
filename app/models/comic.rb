@@ -20,13 +20,13 @@ class Comic < ActiveRecord::Base
         temp[:message] = msg
         comic.last_error_at = Time.now
         comic.error_count += 1
-        if comic.error_count>5
+        if comic.error_count>AppConfig.max_errors_count
           comic.status = "errored"
           temp[:actions] = "Comic wurde deaktiviert!"
         else
-          temp[:actions] = "Fehler ##{comic.error_count}. Nach 5 Fehlern wird der Comic deaktiviert."
+          temp[:actions] = "Fehler ##{comic.error_count}. Nach #{AppConfig.max_errors_count} Fehlern wird der Comic deaktiviert."
         end
-        errored_comics << temp if comic.error_count>1 # error_count wurde bereits erhöht - 1 bedeutet, dass der Comic das erste Mal Probleme macht. Dieses erste Mal ignorieren wir.
+        errored_comics << temp if comic.error_count>=AppConfig.min_errors_count # error_count wurde bereits erhöht - 1 bedeutet, dass der Comic das erste Mal Probleme macht. Dieses erste Mal ignorieren wir.
         comic.save
       else
         comic.error_count = 0

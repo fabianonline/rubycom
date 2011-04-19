@@ -1,0 +1,10 @@
+common:
+  admin_email: mail@fabianonline.de
+  self_email: rubycom@fabianonline.de
+  mail_errors: false
+  min_errors_count: 2
+  max_errors_count: 10
+
+production:
+  mail_errors: true
+
