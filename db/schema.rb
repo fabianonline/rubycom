@@ -9,15 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110408214337) do
+ActiveRecord::Schema.define(:version => 20110419183049) do
 
   create_table "comics", :force => true do |t|
     t.string   "name"
     t.string   "base_url",           :default => "http://"
-    t.string   "method"
-    t.string   "search_type"
     t.string   "search_query"
-    t.string   "url_scheme"
     t.string   "directory"
     t.datetime "created_at"
     t.datetime "updated_at"
