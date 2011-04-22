@@ -18,28 +18,23 @@ class ComicsController < ApplicationController
     @comics = Comic.enabled.all(:order=>:name, :include=>:strips).select{|c| c.strips.by_date(@date).count>0}
   end
 
+  # Wird nur per AJAX aufgerufen.
   def get_new_strip
     comic = Comic.find(params[:id])
     result = {}
     begin
       if comic.get_new_strip
-        flash[:success] = "Update vom \"#{comic.name}\" erfolgreich."
         result["new_comic"] = true
       else
-        flash[:notice] = "Aktueller Strip ist bereits bekannt."
         result["new_comic"] = false
       end
       result["success"] = true
     rescue => bang
       result["success"] = false
       result["error"] = bang.to_s
-      flash[:error] = "Fehler: #{bang.to_s}"
     end
 
-    respond_to do |format|
-      format.json { flash={}; render :json=>result}
-      format.all { redirect_to comics_url }
-    end
+    render :json=>result
   end
 
   def daylist
