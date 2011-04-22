@@ -1,7 +1,7 @@
 <script type="text/javascript">
 function set_directory() {
   if($('#comic_directory').val().length==0) {
-    var name = $('comic_name').getValue();
+    var name = $('#comic_name').val();
     name = name.toLowerCase();
     name = name.replace(/ +/g, "_");
     name = name.replace(/[^a-z0-9\-_]/g, "");
