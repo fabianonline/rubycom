@@ -1,12 +1,12 @@
 <script type="text/javascript">
 function set_directory() {
-  if($('comic_directory').getValue().length==0) {
+  if($('#comic_directory').value().length==0) {
     var name = $('comic_name').getValue();
     name = name.toLowerCase();
     name = name.replace(/ +/g, "_");
     name = name.replace(/[^a-z0-9\-_]/g, "");
     name = name.replace(/__+/g, "_");
-    $('comic_directory').setValue(name);
+    $('#comic_directory').value(name);
   }
 }
 </script>
