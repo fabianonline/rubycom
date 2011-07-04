@@ -1,0 +1,207 @@
+---
+accidental_centaurs:
+    name: "Accidental Centaurs"
+    base_url: "http://www.accidentalcentaurs.com"
+    search_query: "div.comic2 img"
+
+amazing_superpowers:
+    name: "Amazing Superpowers"
+    base_url: "http://www.amazingsuperpowers.com"
+    search_query: "div#comic-1 img"
+
+andy_capp:
+    name: "Andy Capp"
+    base_url: "http://www.creators.com/featurepages/11_comics_andy-capp.html?name=cap"
+    search_query: "div#comic_full img"
+    regexp_search: "&w=[0-9]+"
+
+applegeeks_lite:
+    name: "Applegeeks Lite"
+    base_url: "http://www.applegeeks.com/lite/"
+    search_query: "div#strip img"
+
+bc:
+    name: "B.C."
+    base_url: "http://www.creators.com/comics/bc.html?comicname=bc"
+    search_query: "table[width=\"700\"] img"
+
+beetle_bailey:
+    name: "Beetle Bailey"
+    base_url: "http://www.arcamax.com/thefunnies/beetlebailey"
+    search_query: "article.comic a img"
+
+calvin_and_hobbes:
+    name: "Calvin and Hobbes"
+    base_url: "http://www.gocomics.com/calvinandhobbes/"
+    search_query: "p.feature_item a img"
+
+ctrl-alt-del:
+    name: "Ctrl-Alt-Del"
+    base_url: "http://www.cad-comic.com/cad"
+    search_query: "div#content > img"
+
+cyanide_and_happiness:
+    name: "Cyanide and Happiness"
+    base_url: "http://www.explosm.net/comics/new/"
+    search_query: "div > img[alt~=Cyanide]"
+
+der_flix:
+    name: "Der Flix"
+    base_url: "http://der-flix.de/index.php"
+    search_query: "td > img"
+
+dilbert:
+    name: "Dilbert"
+    base_url: "http://www.dilbert.com/strips/"
+    search_query: "div.STR_Image a img"
+
+dominic_deegan:
+    name: "Dominic Deegan"
+    base_url: "http://www.dominic-deegan.com/"
+    search_query: "div.comic img"
+
+dork_tower:
+    name: "DorkTower"
+    base_url: "http://www.dorktower.com"
+    search_query: "div.entry img"
+
+el_goonish_shive:
+    name: "El Goonish Shive"
+    base_url: "http://www.egscomics.com/"
+    search_query: "div.comic2 img"
+
+extralife:
+    name: "Extralife"
+    base_url: "http://www.myextralife.com/"
+    search_query: "div.comic-content a img"
+
+garfield:
+    name: "Garfield"
+    base_url: "http://www.gocomics.com/garfield/"
+    search_query: "p.feature_item a img"
+
+garfield_minus_garfield:
+    name: "Garfield minus Garfield"
+    base_url: "http://garfieldminusgarfield.net/"
+    search_query: "div.photo a img"
+
+google_doodle:
+    name: "Google Doodle"
+    base_url: "http://www.google.com/webhp?hl=en"
+    search_query: "img#hplogo"
+
+hagar_the_horrible:
+    name: "Hagar the horrible"
+    base_url: "http://www.arcamax.com/thefunnies/hagarthehorrible"
+    search_query: "article.comic a img"
+
+hijinks_ensue:
+    name: "HijiNKS ENSUE"
+    base_url: "http://hijinksensue.com/"
+    search_query: "#comic-1 img"
+
+joy_of_tech:
+    name: "Joy of Tech"
+    base_url: "http://www.geekculture.com/joyoftech/"
+    search_query: "td[valign=top] > div[align=center] img"
+
+kevin_and_kell:
+    name: "Kevin and Kell"
+    base_url: "http://www.kevinandkell.com/"
+    search_query: "div#comic a img"
+
+little_gamers:
+    name: "Little Gamers"
+    base_url: "http://www.little-gamers.com/"
+    search_query: "div#comic-middle img"
+
+nasa:
+    name: "NASA Image of the day"
+    base_url: "http://www.nasa.gov/rss/image_of_the_day.rss"
+    search_query: ""
+
+not_invented_here:
+    name: "Not invented here"
+    base_url: "http://notinventedhe.re"
+    search_query: "#comic-content a img"
+
+pajama_forest:
+    name: "Pajama Forest"
+    base_url: "http://pajamaforest.com/"
+    search_query: "div.comicpane img"
+
+pants_are_overrated:
+    name: "Pants are overrated"
+    base_url: "http://www.pantsareoverrated.com/"
+    search_query: "div#comic img"
+
+penny_arcade:
+    name: "Penny Arcade"
+    base_url: "http://www.penny-arcade.com/comic/"
+    search_query: "div.body img"
+
+questionable_content:
+    name: "Questionable Content"
+    base_url: "http://questionablecontent.net/"
+    search_query: "img#strip"
+
+real_life:
+    name: "Real Life"
+    base_url: "http://www.reallifecomics.com/"
+    search_query: "div.comic_image img"
+
+ruthe:
+    name: "Ruthe"
+    base_url: "http://ruthe.de/"
+    search_query: "div#cartoon img"
+
+scandinavia_and_the_world:
+    name: "Scandinavia and the world"
+    base_url: "http://satwcomic.com/"
+    search_query: "center > div > img"
+
+shermans_lagoon:
+    name: "Sherman's Lagoon"
+    base_url: "http://www.slagoon.com/cgi-bin/sviewer.pl"
+    search_query: "body > p[align=LEFT] > img"
+
+sinfest:
+    name: "Sinfest"
+    base_url: "http://www.sinfest.net/index.php"
+    search_query: "table#AutoNumber2 p[align=center] > img"
+
+spinnerette:
+    name: "Spinnerette"
+    base_url: "http://www.krakowstudios.com/spinnerette/"
+    search_query: "div#comic-1 a img"
+
+the_warehouse:
+    name: "The Warehouse"
+    base_url: "http://www.warehousecomic.com/index.php"
+    search_query: "div.comicHolder div[align=center] > img"
+
+touche:
+    name: "Touche"
+    base_url: "http://www.taz.de/digitaz/.tom/tomdestages"
+    search_query: "div.tom_content img"
+
+union_der_helden:
+    name: "Union der Helden"
+    base_url: "http://www.unionderhelden.de"
+    search_query: "div.content dl.csc-textpic-image dt img"
+
+user_friendly:
+    name: "User Friendly"
+    base_url: "http://www.userfriendly.org/static/"
+    search_query: "img[alt=\"Latest Strip\"]"
+
+wizard_of_id:
+    name: "Wizard of Id"
+    base_url: "http://www.arcamax.com/thefunnies/wizardofid"
+    search_query: "article.comic a img"
+
+xkcd:
+    name: "XKCD"
+    base_url: "http://xkcd.com"
+    search_query: "div.bd div.c div.s > img"
+
