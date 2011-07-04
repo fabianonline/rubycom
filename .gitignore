@@ -4,3 +4,5 @@ config/config.yml
 public/comics/*
 public/.htaccess
 tmp/**/*
+tmp/*
+
