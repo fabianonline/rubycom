@@ -12,10 +12,11 @@ Installation
 
 1. You need a normal RoR enabled webserver.
 2. Clone rubycom.
-3. Modify `config/database.yml`.
-4. Modify `config/config.yml`.
+3. Copy `config/database.yml.example` to `config/database.yml` and modify it to your likings.
+4. Do the same with `config/config.yml.example`.
 5. Run `rake db:migrate`.
 6. Make sure the webserver has the right to write into `public/comics`.
-7. Call rubycom in your webbrowser.
-8. Have fun?
+7. It is also advisable to give the webserver permission to modify `config/comics.yml`.
+8. Call rubycom in your webbrowser.
+9. Have fun?
 
