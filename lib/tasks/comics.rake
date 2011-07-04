@@ -14,7 +14,7 @@ namespace :comics do
     File.open(File.join(RAILS_ROOT, "/config/comics.yaml"), "w") do |f|
       f.write(string)
     end
-    puts "Saved at config/comics.yaml"
+    puts "Saved at config/comics.yml"
   end
 end
 
