@@ -92,7 +92,12 @@ class ComicsController < ApplicationController
   end
 
   def update_online_list
-    comics = Comic.get_online_list
+    begin
+      comics = Comic.get_online_list
+    rescue Errno::EACCES
+      comics = YAML::load_file(File.join(RAILS_ROOT, "/config/comics.yml"))
+      flash[:error] = "This function needs to have write rights on config/comics.yml. Continuing with local version of this file which may not be up-to-date."
+    end
     @updateable_comics = []
     @new_comics = []
 
