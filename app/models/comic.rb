@@ -201,4 +201,18 @@ class Comic < ActiveRecord::Base
       return false
     end
   end
+
+  def self.get_online_list
+    require 'open-uri'
+    yaml = ""
+    open("https://raw.github.com/fabianonline/rubycom/master/config/comics.yml") do |f|
+      yaml = f.read
+    end
+
+    File.open(File.join(RAILS_ROOT, "/config/comics.yml"), "w") do |f|
+      f.write(yaml)
+    end
+
+    return YAML::load(yaml)
+  end   
 end

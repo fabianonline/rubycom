@@ -90,4 +90,33 @@ class ComicsController < ApplicationController
       render :action=>:edit
     end
   end
+
+  def update_online_list
+    comics = Comic.get_online_list
+    @updateable_comics = []
+    @new_comics = []
+
+    comics.sort.each do |c|
+      comic_details = c[1]
+      comic_details["ident"] = c[0]
+      comic = Comic.find_by_directory(c[0])
+      if comic
+        if comic_details.keys.any? {|key| key!="ident" && comic_details[key] != comic[key]}
+          @updateable_comics << comic_details
+        end
+      else
+        @new_comics << comic_details
+      end
+    end
+  end
+
+  def use_online_list
+    comics = YAML::load_file(File.join(RAILS_ROOT, "/config/comics.yml"))
+    params["comics"].each do |c|
+      comic = Comic.find_or_initialize_by_directory(c)
+      comic.update_attributes(comics[c])
+      comic.save
+    end
+    redirect_to comics_url
+  end
 end

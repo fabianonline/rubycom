@@ -38,6 +38,8 @@ ActionController::Routing::Routes.draw do |map|
   map.day 'day/:date', :controller=>:comics, :action=>:day
   map.daylist 'day', :controller=>:comics, :action=>:daylist
   map.root :controller=>:comics, :action=>:daylist
+  map.update_online_list 'comics/update_online_list', :controller=>:comics, :action=>:update_online_list
+  map.use_online_list 'comics/use_online_list', :controller=>:comics, :action=>:use_online_list, :conditions=>{:method=>:post}
   map.connect 'comics/:id/page/:page', :controller=>:comics, :action=>:show
   map.comic_update 'comics/:id/update', :controller=>:comics, :action=>:get_new_strip
   map.resources :comics
