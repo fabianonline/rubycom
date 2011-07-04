@@ -20,3 +20,17 @@ Installation
 8. Call rubycom in your webbrowser.
 9. Have fun?
 
+
+Automatic Updates
+-----------------
+
+### How do they work?
+
+Rubycom fetches the file config/comics.yml from this repository and uses it to update or add new
+comics to your local comic list - if you wish.
+
+### Can I extend this list?
+
+Of course. Fork this project, add new comics to your list (or repair existing comics) and then run
+`rake comics:dump`. This will regenerate `config/comics.yml` with your local comics. Commit, push and
+send me a pull request. I'll be happy to merge it.
