@@ -14,6 +14,7 @@ andy_capp:
     base_url: "http://www.creators.com/featurepages/11_comics_andy-capp.html?name=cap"
     search_query: "div#comic_full img"
     regexp_search: "&w=[0-9]+"
+    regexp_replace: ""
 
 applegeeks_lite:
     name: "Applegeeks Lite"
@@ -89,6 +90,7 @@ google_doodle:
     name: "Google Doodle"
     base_url: "http://www.google.com/webhp?hl=en"
     search_query: "img#hplogo"
+    ignore_size: true
 
 hagar_the_horrible:
     name: "Hagar the horrible"
