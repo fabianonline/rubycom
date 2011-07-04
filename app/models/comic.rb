@@ -2,6 +2,8 @@ class Comic < ActiveRecord::Base
   has_many :strips, :order=>:date, :dependent=>:destroy
   named_scope :enabled, :conditions=>{:status=>"enabled"}
 
+  before_save :cleanup_regexp
+
   validates_uniqueness_of :directory
   validates_length_of :directory, :minimum=>1
 
@@ -215,4 +217,12 @@ class Comic < ActiveRecord::Base
 
     return YAML::load(yaml)
   end   
+
+  private
+  def cleanup_regexp
+    if self.regexp_search && self.regexp_search.length==0
+      self.regexp_search = nil
+      self.regexp_replace = nil
+    end
+  end
 end
