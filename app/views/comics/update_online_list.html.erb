@@ -2,16 +2,17 @@
   <% unless @updateable_comics.empty? %>
     <h1>Updatebare Comics</h1>
     <% @updateable_comics.each do |comic| %>
-      <%= check_box_tag "comics[]", comic["ident"] %> <strong><%= comic["name"] %></strong><br />
+      <%= check_box_tag "comics[]", comic["ident"] %> <strong><%= comic["name"] %></strong> (<%= link_to "link", comic["base_url"], :target=>"_blank" %>)<br />
     <% end %>
   <% end %>
 
   <% unless @new_comics.empty? %>
     <h1>Neue Comics</h1>
     <% @new_comics.each do |comic| %>
-      <%= check_box_tag "comics[]", comic["ident"] %> <strong><%= comic["name"] %></strong><br />
+      <%= check_box_tag "comics[]", comic["ident"] %> <strong><%= comic["name"] %></strong> (<%= link_to "link", comic["base_url"], :target=>"_blank" %>)<br />
     <% end %>
   <% end %>
 
-  <%= submit_tag "Absenden" %>
+  <br />
+  <%= submit_tag "Hinzufügen / Aktualisieren" %>
 <% end %>
