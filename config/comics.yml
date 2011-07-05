@@ -133,6 +133,11 @@ nasa:
     base_url: "http://www.nasa.gov/rss/image_of_the_day.rss"
     search_query: ""
 
+nichtlustig:
+    name: "Nichtlustig"
+    base_url: "http://nichtlustig.de/rss/nichtrss.rss"
+    search_query: "item table img[src*=comics]"
+
 not_invented_here:
     name: "Not invented here"
     base_url: "http://notinventedhe.re"
