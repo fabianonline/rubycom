@@ -204,19 +204,31 @@ class Comic < ActiveRecord::Base
     end
   end
 
-  def self.get_online_list
+  def self.fetch_comic_list
     require 'open-uri'
     yaml = ""
     open("https://raw.github.com/fabianonline/rubycom/master/config/comics.yml") do |f|
       yaml = f.read
     end
-
-    File.open(File.join(RAILS_ROOT, "/config/comics.yml"), "w") do |f|
-      f.write(yaml)
+    
+    begin
+      File.open(File.join(RAILS_ROOT, "/tmp/comics.yml"), "w") do |f|
+        f.write(yaml)
+      end
+    rescue
+      # do nothing
     end
+  end
 
-    return YAML::load(yaml)
-  end   
+  def self.get_local_online_list
+    if File.exist?(File.join(RAILS_ROOT, "/tmp/comics.yml"))
+      return :tmp, YAML::load_file(File.join(RAILS_ROOT, "/tmp/comics.yml"))
+    elsif File.exist?(File.join(RAILS_ROOT, "/config/comics.yml"))
+      return :config, YAML::load_file(File.join(RAILS_ROOT, "/config/comics.yml"))
+    else
+      return :empty, {}
+    end
+  end
 
   private
   def cleanup_regexp

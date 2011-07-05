@@ -92,12 +92,8 @@ class ComicsController < ApplicationController
   end
 
   def update_online_list
-    begin
-      comics = Comic.get_online_list
-    rescue Errno::EACCES
-      comics = YAML::load_file(File.join(RAILS_ROOT, "/config/comics.yml"))
-      flash[:error] = "This function needs to have write rights on config/comics.yml. Continuing with local version of this file which may not be up-to-date."
-    end
+    Comic.fetch_comic_list
+    comics = get_comic_list
     @updateable_comics = []
     @new_comics = []
 
@@ -116,12 +112,20 @@ class ComicsController < ApplicationController
   end
 
   def use_online_list
-    comics = YAML::load_file(File.join(RAILS_ROOT, "/config/comics.yml"))
+    comics = get_comic_list
     params["comics"].each do |c|
       comic = Comic.find_or_initialize_by_directory(c)
       comic.update_attributes(comics[c])
       comic.save
     end
     redirect_to comics_url
+  end
+
+  private
+  def get_comic_list
+    source, comics = Comic.get_local_online_list
+    flash[:error] = "Kein Schreibzugriff auf tmp/comics.yml möglich. Nutze die (nicht zwingend aktuelle) Datei config/comics.yml." if source==:config
+    flash[:error] = "Kein Schreibzugriff auf tmp/comics.yml möglich. Bitte korrigieren und dann nochmal versuchen." if source==:empty
+    return comics
   end
 end
