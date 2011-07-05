@@ -1,3 +1,14 @@
+# This file contains multiple comic definitions. There can be up to two versions
+# within your instance of Rubycom:
+#   tmp/comics.yml - Created by the comiclist-update.
+#   config/comics.yml - Included in the repository, used as a fallback if tmp isn't
+#                       writeable. Can be created with your local comic definitions
+#                       by running 'rake comics:dump'.
+# 
+# If you want to contribute new comics to the repository, run 'rake comics:dump'
+# and then commit your config/comics.yml, push it and issue a pull request.
+
+
 ---
 accidental_centaurs:
     name: "Accidental Centaurs"
