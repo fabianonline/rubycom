@@ -47,6 +47,11 @@ calvin_and_hobbes:
     base_url: "http://www.gocomics.com/calvinandhobbes/"
     search_query: "p.feature_item a img"
 
+cleopatra_in_space:
+    name: "Cleopatra in Space"
+    base_url: "http://www.cowshell.com/cleopatra/"
+    search_query: "div#comic img"
+
 ctrl-alt-del:
     name: "Ctrl-Alt-Del"
     base_url: "http://www.cad-comic.com/cad"
