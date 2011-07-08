@@ -193,6 +193,11 @@ scandinavia_and_the_world:
     base_url: "http://satwcomic.com/"
     search_query: "center > div > img"
 
+scenes_from_a_multiverse:
+    name: "Scenes from a Multiverse"
+    base_url: "http://amultiverse.com/"
+    search_query: "#comic-1 img"
+
 shermans_lagoon:
     name: "Sherman's Lagoon"
     base_url: "http://www.slagoon.com/cgi-bin/sviewer.pl"
