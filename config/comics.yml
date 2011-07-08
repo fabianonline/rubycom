@@ -183,6 +183,11 @@ real_life:
     base_url: "http://www.reallifecomics.com/"
     search_query: "div.comic_image img"
 
+reds_planet:
+    name: "Red's Planet"
+    base_url: "http://www.redsplanet.com/comic/"
+    search_query: "#comic img"
+
 ruthe:
     name: "Ruthe"
     base_url: "http://ruthe.de/"
