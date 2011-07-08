@@ -42,6 +42,11 @@ beetle_bailey:
     base_url: "http://www.arcamax.com/thefunnies/beetlebailey"
     search_query: "article.comic a img"
 
+bug:
+    name: "Bug"
+    base_url: "http://www.bugcomic.com/"
+    search_query: "#comic-1 img"
+
 calvin_and_hobbes:
     name: "Calvin and Hobbes"
     base_url: "http://www.gocomics.com/calvinandhobbes/"
