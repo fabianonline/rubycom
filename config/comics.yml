@@ -100,7 +100,7 @@ extralife:
 garfield:
     name: "Garfield"
     base_url: "http://www.gocomics.com/garfield/"
-    search_query: "p.feature_item a img"
+    search_query: "p.feature_item img"
 
 garfield_minus_garfield:
     name: "Garfield minus Garfield"
