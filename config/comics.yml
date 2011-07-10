@@ -50,7 +50,7 @@ bug:
 calvin_and_hobbes:
     name: "Calvin and Hobbes"
     base_url: "http://www.gocomics.com/calvinandhobbes/"
-    search_query: "p.feature_item a img"
+    search_query: "p.feature_item img"
 
 cleopatra_in_space:
     name: "Cleopatra in Space"
