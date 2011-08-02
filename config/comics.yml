@@ -193,6 +193,11 @@ reds_planet:
     base_url: "http://www.redsplanet.com/comic/"
     search_query: "#comic img"
 
+rooster_teeth:
+    name: "Rooster Teeth"
+    base_url: "http://roosterteeth.com/comics/today.php"
+    search_query: "img.icon"
+
 ruthe:
     name: "Ruthe"
     base_url: "http://ruthe.de/"
