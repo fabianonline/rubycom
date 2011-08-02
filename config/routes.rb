@@ -41,7 +41,9 @@ ActionController::Routing::Routes.draw do |map|
   map.update_online_list 'comics/update_online_list', :controller=>:comics, :action=>:update_online_list
   map.use_online_list 'comics/use_online_list', :controller=>:comics, :action=>:use_online_list, :conditions=>{:method=>:post}
   map.connect 'comics/:id/page/:page', :controller=>:comics, :action=>:show
+  map.resources :strips, :only=>[:show]
   map.comic_update 'comics/:id/update', :controller=>:comics, :action=>:get_new_strip
+  map.feed 'feed', :controller=>:comics, :action=>:feed
   map.resources :comics
   map.debug_comic 'comics/:id/debug', :controller=>:comics, :action=>:debug
 

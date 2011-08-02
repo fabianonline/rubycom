@@ -121,6 +121,13 @@ class ComicsController < ApplicationController
     redirect_to comics_url
   end
 
+  def feed
+    @strips = Comic.enabled.all(:order=>:name).collect{|c| c.strips.last}
+    respond_to do |format|
+      format.atom
+    end
+  end
+
   private
   def get_comic_list
     source, comics = Comic.get_local_online_list
