@@ -7,6 +7,12 @@
   </head>
 
   <body>
+    <ul class="menu">
+      <li><%= link_to "Archiv", root_url %></li>
+      <li><%= link_to "Verwaltung", comics_url %></li>
+      <li><%= link_to "Atom-Feed", feed_url %></li>
+    </ul>
+
     <% flash.each do |key, value| %>
       <div class="flash <%= h key %>"><%= h value %></div>
     <% end %>

@@ -58,3 +58,17 @@ a.inactive {
   border-color: #000 #fff #fff #000 !important;
 }
 
+ul.menu {
+  padding-left: 0px;
+  margin-bottom: 30px;
+}
+
+.menu li {
+  display: inline;
+  background-color: #ddf;
+  padding: 5px;
+}
+
+.menu li a {
+  color: #00f;
+}
