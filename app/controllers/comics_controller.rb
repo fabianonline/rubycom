@@ -122,7 +122,7 @@ class ComicsController < ApplicationController
   end
 
   def feed
-    @strips = Comic.enabled.all(:order=>:name).collect{|c| c.strips.last}
+    @strips = Comic.all(:order=>:name).collect{|c| c.strips.last(5)}.flatten
     respond_to do |format|
       format.atom
     end
