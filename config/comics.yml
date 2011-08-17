@@ -176,7 +176,7 @@ pants_are_overrated:
 penny_arcade:
     name: "Penny Arcade"
     base_url: "http://www.penny-arcade.com/comic/"
-    search_query: "div.body img"
+    search_query: "div.post.comic img"
 
 phd_comics:
     name: "PHD Comics"
