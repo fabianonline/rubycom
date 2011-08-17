@@ -32,6 +32,11 @@ applegeeks_lite:
     base_url: "http://www.applegeeks.com/lite/"
     search_query: "div#strip img"
 
+battlepug:
+    name: "Battlepug"
+    base_url: "http://battlepug.com"
+    search_query: "#comic-1 img"
+
 bc:
     name: "B.C."
     base_url: "http://www.creators.com/comics/bc.html?comicname=bc"
