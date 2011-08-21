@@ -56,7 +56,7 @@ class Comic < ActiveRecord::Base
     doc = Nokogiri::HTML(html)
     unless search_query.empty?
       # Ganz normale HTML-Suche.
-      return doc.css(search_query.split(",")[selector_part].strip).first
+      return doc.css(search_query.split(";")[selector_part].strip).first
     else
       # RSS-Feed. IMG-Element nachbauen.
       element = doc.css("item").first
