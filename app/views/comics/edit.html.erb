@@ -14,7 +14,7 @@ function set_directory() {
 <% form_for @comic do |f| %>
   <%= f.label :name, "Name" %> <%= f.text_field :name, :onchange=>"set_directory();" %><br />
   <%= f.label :base_url, "Basis-URL" %> <%= f.text_field :base_url %><br />
-  <%= f.label :search_query, "Suchpfad" %> <%= f.text_field :search_query %> (für RSS-Feeds einfach leer lassen)<br />
+  <%= f.label :search_query, "CSS-Selektor" %> <%= f.text_field :search_query, :size=>80 %> (für RSS-Feeds einfach leer lassen)<br />
   <%= f.label :regexp_search, "Regexp-Suche" %> <%= f.text_field :regexp_search %><br />
   <%= f.label :regexp_replace, "Regexp-Ersatz" %> <%= f.text_field :regexp_replace %><br />
   <%= f.label :directory, "Zielverzeichnis" %> <%= f.text_field :directory %><br />
