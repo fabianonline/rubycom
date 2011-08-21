@@ -60,7 +60,7 @@ class ComicsController < ApplicationController
 
   def debug
     @comic = Comic.find(params[:id])
-    @result = @comic.get_new_strip(:debug=>true)
+    @all_results = @comic.get_new_strip(:debug=>true)
   end
 
   def update

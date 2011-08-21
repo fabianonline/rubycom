@@ -43,20 +43,20 @@ class Comic < ActiveRecord::Base
     puts " Done."
   end
 
-  def get_html
+  def get_html(override_url=nil)
     require 'open-uri'
     html = ''
-    open(base_url) do |f|
+    open(override_url || base_url) do |f|
       html = f.read
     end
     return html
   end
 
-  def get_img_element(html)
+  def get_element(html, selector_part=0)
     doc = Nokogiri::HTML(html)
     unless search_query.empty?
       # Ganz normale HTML-Suche.
-      return doc.css(search_query).first
+      return doc.css(search_query.split(",")[selector_part].strip).first
     else
       # RSS-Feed. IMG-Element nachbauen.
       element = doc.css("item").first
@@ -157,9 +157,9 @@ class Comic < ActiveRecord::Base
     return ext
   end
 
-  def get_url(element)
+  def get_url(element, attribute="src")
     base_href_value = element.document.css("head base")[0][:href] rescue ""
-    URI.join(base_url, base_href_value, element["src"]) rescue nil
+    URI.join(base_url, base_href_value, element[attribute]) rescue nil
   end
 
   def rewrite_url(url)
@@ -169,31 +169,50 @@ class Comic < ActiveRecord::Base
 
   def get_new_strip(options={})
     do_debug = options[:debug] || false
-    debug_data = {}
+    all_debug_data = []
+    override_url = nil
+    selector_part = 0
     begin
-      document = get_html
-      debug_data[:document] = document
-      element = get_img_element(document)
-      debug_data[:element] = element
-      raise "Selektiertes Element ist kein img-Element" unless element && element.name=="img"
-      url = get_url(element)
-      debug_data[:url_original] = url
-      url = rewrite_url(url)
-      debug_data[:url_rewritten] = url
-      all_data = get_image_data(url)
-      debug_data[:image_data] = all_data
-      data = all_data[:data]
-      extension = analyze_image_data(data)
-      debug_data[:image_extension] = extension
-      hash = calculate_hash_value(data)
-      debug_data[:image_hash] = hash
-      length = data.length
-      debug_data[:image_size] = length
+      while true do
+        logger.debug("Schleife läuft...")
+        debug_data = {}
+        all_debug_data << debug_data
+        document = get_html(override_url)
+        debug_data[:document] = document
+        element = get_element(document, selector_part)
+        debug_data[:element] = element
+        raise "Kein Element selektiert" unless element
+        case element.name
+          when "img"
+            # alles OK, weitermachen!
+          when "a"
+            # Link, Adresse nehmen und neu anfangen
+            override_url = get_url(element, "href")
+            selector_part += 1
+            next
+          else
+            raise "Selektiertes Element ist kein zulässiges Element."
+        end
+        url = get_url(element)
+        debug_data[:url_original] = url
+        url = rewrite_url(url)
+        debug_data[:url_rewritten] = url
+        all_data = get_image_data(url)
+        debug_data[:image_data] = all_data
+        data = all_data[:data]
+        extension = analyze_image_data(data)
+        debug_data[:image_extension] = extension
+        hash = calculate_hash_value(data)
+        debug_data[:image_hash] = hash
+        length = data.length
+        debug_data[:image_size] = length
+        break
+      end
     rescue => bang
       raise bang unless do_debug
       debug_data[:exception] = bang
     end
-    return debug_data if do_debug
+    return all_debug_data if do_debug
 
     unless image_data_known? hash, length
       filename = save_image_data(data, url, extension)

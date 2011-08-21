@@ -1,27 +1,34 @@
 <h1>Debug-Ansicht zu <%= h @comic.name %></h1>
-<h2>Element-Abfrage</h2>
-<% if @result[:element]==nil %>
-  Es wurd kein passendes Element gefunden! HTML-Code:<br />
-  <pre><%= h @result[:document] %></pre>
-<% elsif @result[:element].name!="img" %>
-  Es wurde ein Element gefunden, welches jedoch kein img-Element ist:<br />
-  <%= h @result[:element] %>
-<% else %>
-  <strong>Gefundenes Element:</strong> <%= h @result[:element] %><br />
-
-  <h2>Ergebnis der URL-Auswertung</h2>
-  <strong>Folgende URL wurde gefunden:</strong> <%= h @result[:url_original].to_s %><br />
-  <strong>Umgeschriebene URL:</strong> <%= h @result[:url_rewritten].to_s %><br />
-
-  <h2>Bild</h2>
-  <% unless @result[:image_data] %>
-    Bild konnte nicht geladen werden. Grund: <%= h @result[:exception] %>
+<% @all_results.each_with_index do |result, i| %>
+  <h2>Durchlauf <%= i %></h2>
+  <h3>Element-Abfrage</h3>
+  <% if result[:element]==nil %>
+    Es wurde kein passendes Element gefunden! HTML-Code:<br />
+    <pre><%= h result[:document] %></pre>
+  <% elsif result[:element].name=="a" %>
+    Weiterleitung gefunden. Link-Code:<br />
+    <pre><%= h result[:element] %></pre>
+    <% next %>
+  <% elsif result[:element].name!="img" %>
+    Es wurde ein Element gefunden, welches jedoch kein img-Element ist:<br />
+    <%= h result[:element] %>
   <% else %>
-  <strong>URL:</strong> <%= h @result[:image_data][:url] %><br />
-    <strong>Folgendes Bild wurde gefunden:</strong><br />
-    <img src="data:<%= @result[:image_data][:content_type] %>;base64,<%= Base64.encode64(@result[:image_data][:data]) %>" />
-  <% end %>
+    <strong>Gefundenes Element:</strong> <%= h result[:element] %><br />
 
+    <h3>Ergebnis der URL-Auswertung</h3>
+    <strong>Folgende URL wurde gefunden:</strong> <%= h result[:url_original].to_s %><br />
+    <strong>Umgeschriebene URL:</strong> <%= h result[:url_rewritten].to_s %><br />
+
+    <h3>Bild</h3>
+    <% unless result[:image_data] %>
+      Bild konnte nicht geladen werden. Grund: <%= h result[:exception] %>
+    <% else %>
+    <strong>URL:</strong> <%= h result[:image_data][:url] %><br />
+      <strong>Folgendes Bild wurde gefunden:</strong><br />
+      <img src="data:<%= result[:image_data][:content_type] %>;base64,<%= Base64.encode64(result[:image_data][:data]) %>" />
+    <% end %>
+
+  <% end %>
 <% end %>
 
 <h2>Aktionen</h2>
