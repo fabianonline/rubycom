@@ -218,6 +218,11 @@ scenes_from_a_multiverse:
     base_url: "http://amultiverse.com/"
     search_query: "#comic-1 img"
 
+shakes_and_fidget:
+    name: "Shakes & Fidget"
+    base_url: "http://www.shakesandfidget.com/"
+    search_query: ".widget.ComicPressLatestThumbnailWidget a; #comic-1 img"
+
 shermans_lagoon:
     name: "Sherman's Lagoon"
     base_url: "http://www.slagoon.com/cgi-bin/sviewer.pl"
