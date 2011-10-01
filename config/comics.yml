@@ -136,7 +136,7 @@ hijinks_ensue:
 joy_of_tech:
     name: "Joy of Tech"
     base_url: "http://www.geekculture.com/joyoftech/"
-    search_query: "td[valign=top] > div[align=center] img"
+    search_query: "td[valign=top] > div[align=center] p img"
 
 kevin_and_kell:
     name: "Kevin and Kell"
@@ -267,6 +267,11 @@ wizard_of_id:
     name: "Wizard of Id"
     base_url: "http://www.arcamax.com/thefunnies/wizardofid"
     search_query: "article.comic a img"
+
+wulffmorgenthaler:
+    name: "Wulffmorgenthaler"
+    base_url: "http://wulffmorgenthaler.com/"
+    search_query: "div.stribe img"
 
 xkcd:
     name: "XKCD"
