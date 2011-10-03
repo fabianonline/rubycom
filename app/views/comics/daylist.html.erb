@@ -1,7 +1,12 @@
-<% @end.downto(@start) do |day| %>
-  <%= link_to day, :action=>:day, :date=>day %>
-  <% if day==Date.tomorrow || (day==Date.today && Time.now.hour<12) %>
-    (vorläufig!)
+<% if @start %>
+  <% @end.downto(@start) do |day| %>
+    <%= link_to day, :action=>:day, :date=>day %>
+    <% if day==Date.tomorrow || (day==Date.today && Time.now.hour<12) %>
+      (vorläufig!)
+    <% end %>
+    <br />
   <% end %>
-  <br />
+<% else %>
+  Entweder sind noch keine Comics eingetragen - oder aber es wurde noch nie ein Comic herumtergeladen. Wenn
+  dies geschehen ist, gibt es hier mehr zu sehen.
 <% end %>

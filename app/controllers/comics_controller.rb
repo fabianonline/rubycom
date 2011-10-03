@@ -38,7 +38,7 @@ class ComicsController < ApplicationController
   end
 
   def daylist
-    @start = Strip.find(:first, :order=>:date).date.to_date
+    @start = Strip.find(:first, :order=>:date).date.to_date rescue nil
     @end = (Time.now.hour>=12 ? Date.tomorrow : Date.today)
   end
 
