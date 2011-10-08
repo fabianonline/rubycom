@@ -1,0 +1,6 @@
+---
+rooster_teeth:
+    name: "Rooster Teeth"
+    base_url: "http://roosterteeth.com/comics/today.php"
+    search_query: "img.icon"
+

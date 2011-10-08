@@ -1,0 +1,8 @@
+---
+andy_capp:
+    name: "Andy Capp"
+    base_url: "http://www.creators.com/featurepages/11_comics_andy-capp.html?name=cap"
+    search_query: "div#comic_full img"
+    regexp_search: "&w=[0-9]+"
+    regexp_replace: ""
+

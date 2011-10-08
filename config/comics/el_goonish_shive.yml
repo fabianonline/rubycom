@@ -1,0 +1,6 @@
+---
+el_goonish_shive:
+    name: "El Goonish Shive"
+    base_url: "http://www.egscomics.com/"
+    search_query: "div.comic2 img"
+

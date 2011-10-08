@@ -1,0 +1,6 @@
+---
+touche:
+    name: "Touche"
+    base_url: "http://www.taz.de/digitaz/.tom/tomdestages"
+    search_query: "div.tom_content img"
+

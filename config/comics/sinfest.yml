@@ -1,0 +1,6 @@
+---
+sinfest:
+    name: "Sinfest"
+    base_url: "http://www.sinfest.net/index.php"
+    search_query: "table#AutoNumber2 p[align=center] > img"
+

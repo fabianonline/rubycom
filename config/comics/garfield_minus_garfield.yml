@@ -1,0 +1,6 @@
+---
+garfield_minus_garfield:
+    name: "Garfield minus Garfield"
+    base_url: "http://garfieldminusgarfield.net/"
+    search_query: "div.photo a img"
+

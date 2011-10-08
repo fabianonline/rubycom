@@ -1,0 +1,6 @@
+---
+pajama_forest:
+    name: "Pajama Forest"
+    base_url: "http://pajamaforest.com/"
+    search_query: "div.comicpane img"
+

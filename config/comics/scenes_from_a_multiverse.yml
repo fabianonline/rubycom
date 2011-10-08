@@ -1,0 +1,6 @@
+---
+scenes_from_a_multiverse:
+    name: "Scenes from a Multiverse"
+    base_url: "http://amultiverse.com/"
+    search_query: "#comic-1 img"
+

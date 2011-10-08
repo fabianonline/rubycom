@@ -1,0 +1,6 @@
+---
+joy_of_tech:
+    name: "Joy of Tech"
+    base_url: "http://www.geekculture.com/joyoftech/"
+    search_query: "td[valign=top] > div[align=center] p img"
+

@@ -1,0 +1,6 @@
+---
+diesel_sweeties:
+    name: "diesel sweeties"
+    base_url: "http://www.dieselsweeties.com/"
+    search_query: "img[alt=\"newest diesel sweeties webcomic\"]"
+

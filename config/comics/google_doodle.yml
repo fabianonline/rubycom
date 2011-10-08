@@ -1,0 +1,7 @@
+---
+google_doodle:
+    name: "Google Doodle"
+    base_url: "http://www.google.com/webhp?hl=en"
+    search_query: "img#hplogo"
+    ignore_size: true
+

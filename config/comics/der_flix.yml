@@ -1,0 +1,6 @@
+---
+der_flix:
+    name: "Der Flix"
+    base_url: "http://der-flix.de/index.php"
+    search_query: "td > img"
+

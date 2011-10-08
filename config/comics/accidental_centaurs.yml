@@ -1,0 +1,6 @@
+---
+accidental_centaurs:
+    name: "Accidental Centaurs"
+    base_url: "http://www.accidentalcentaurs.com"
+    search_query: "div.comic2 img"
+

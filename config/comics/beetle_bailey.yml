@@ -1,0 +1,6 @@
+---
+beetle_bailey:
+    name: "Beetle Bailey"
+    base_url: "http://www.arcamax.com/thefunnies/beetlebailey"
+    search_query: "article.comic a img"
+
