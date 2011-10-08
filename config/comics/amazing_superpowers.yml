@@ -1,0 +1,6 @@
+---
+amazing_superpowers:
+    name: "Amazing Superpowers"
+    base_url: "http://www.amazingsuperpowers.com"
+    search_query: "div#comic-1 img"
+

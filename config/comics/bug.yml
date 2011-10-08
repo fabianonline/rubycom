@@ -1,0 +1,6 @@
+---
+bug:
+    name: "Bug"
+    base_url: "http://www.bugcomic.com/"
+    search_query: "#comic-1 img"
+

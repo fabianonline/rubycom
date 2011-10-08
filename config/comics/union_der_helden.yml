@@ -1,0 +1,6 @@
+---
+union_der_helden:
+    name: "Union der Helden"
+    base_url: "http://www.unionderhelden.de"
+    search_query: "div.content dl.csc-textpic-image dt img"
+

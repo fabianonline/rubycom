@@ -1,0 +1,6 @@
+---
+scandinavia_and_the_world:
+    name: "Scandinavia and the world"
+    base_url: "http://satwcomic.com/"
+    search_query: "center > div > a > img"
+

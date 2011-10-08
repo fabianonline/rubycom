@@ -1,0 +1,6 @@
+---
+xkcd:
+    name: "XKCD"
+    base_url: "http://xkcd.com"
+    search_query: "div.bd div.c div.s > img"
+

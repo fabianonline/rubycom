@@ -1,0 +1,6 @@
+---
+bc:
+    name: "B.C."
+    base_url: "http://www.creators.com/comics/bc.html?comicname=bc"
+    search_query: "table[width=\"700\"] img"
+

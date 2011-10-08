@@ -1,0 +1,6 @@
+---
+real_life:
+    name: "Real Life"
+    base_url: "http://www.reallifecomics.com/"
+    search_query: "div.comic_image img"
+

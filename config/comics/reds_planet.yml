@@ -1,0 +1,6 @@
+---
+reds_planet:
+    name: "Red's Planet"
+    base_url: "http://www.redsplanet.com/comic/"
+    search_query: "#comic img"
+

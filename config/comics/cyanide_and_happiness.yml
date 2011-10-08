@@ -1,0 +1,6 @@
+---
+cyanide_and_happiness:
+    name: "Cyanide and Happiness"
+    base_url: "http://www.explosm.net/comics/new/"
+    search_query: "div > img[alt~=Cyanide]"
+

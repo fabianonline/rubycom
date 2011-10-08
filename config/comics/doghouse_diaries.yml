@@ -1,0 +1,6 @@
+---
+doghouse_diaries:
+    name: "Doghouse Diaries"
+    base_url: "http://www.thedoghousediaries.com/"
+    search_query: "img.comic-item"
+

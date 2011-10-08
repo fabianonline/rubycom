@@ -1,0 +1,6 @@
+---
+sunday_morning_breakfast_cereal:
+    name: "Sunday Morning Breakfast Cereal"
+    base_url: "http://www.smbc-comics.com/"
+    search_query: "td.comicboxcenter td > center > img:not([alt])"
+

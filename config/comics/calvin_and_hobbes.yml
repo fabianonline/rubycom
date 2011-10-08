@@ -1,0 +1,6 @@
+---
+calvin_and_hobbes:
+    name: "Calvin and Hobbes"
+    base_url: "http://www.gocomics.com/calvinandhobbes/"
+    search_query: "p.feature_item img"
+

@@ -1,0 +1,6 @@
+---
+hagar_the_horrible:
+    name: "Hagar the horrible"
+    base_url: "http://www.arcamax.com/thefunnies/hagarthehorrible"
+    search_query: "article.comic a img"
+

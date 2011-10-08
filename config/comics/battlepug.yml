@@ -1,0 +1,6 @@
+---
+battlepug:
+    name: "Battlepug"
+    base_url: "http://battlepug.com"
+    search_query: "#comic-1 img"
+

@@ -1,0 +1,6 @@
+---
+ruthe:
+    name: "Ruthe"
+    base_url: "http://ruthe.de/"
+    search_query: "div#cartoon img"
+

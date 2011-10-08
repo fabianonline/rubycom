@@ -1,0 +1,6 @@
+---
+user_friendly:
+    name: "User Friendly"
+    base_url: "http://www.userfriendly.org/static/"
+    search_query: "img[alt=\"Latest Strip\"]"
+

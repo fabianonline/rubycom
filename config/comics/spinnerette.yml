@@ -1,0 +1,6 @@
+---
+spinnerette:
+    name: "Spinnerette"
+    base_url: "http://www.krakowstudios.com/spinnerette/"
+    search_query: "div#comic-1 a img"
+

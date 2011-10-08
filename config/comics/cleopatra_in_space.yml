@@ -1,0 +1,6 @@
+---
+cleopatra_in_space:
+    name: "Cleopatra in Space"
+    base_url: "http://www.cowshell.com/cleopatra/"
+    search_query: "div#comic img"
+

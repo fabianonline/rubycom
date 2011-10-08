@@ -1,0 +1,6 @@
+---
+dork_tower:
+    name: "DorkTower"
+    base_url: "http://www.dorktower.com"
+    search_query: "div.entry img"
+

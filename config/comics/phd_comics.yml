@@ -1,0 +1,6 @@
+---
+phd_comics:
+    name: "PHD Comics"
+    base_url: "http://www.phdcomics.com/comics.php"
+    search_query: "td[align=\"center\"] > img[align=\"top\"]"
+

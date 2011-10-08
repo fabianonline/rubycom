@@ -1,0 +1,6 @@
+---
+applegeeks_lite:
+    name: "Applegeeks Lite"
+    base_url: "http://www.applegeeks.com/lite/"
+    search_query: "div#strip img"
+
