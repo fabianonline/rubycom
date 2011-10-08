@@ -1,0 +1,6 @@
+---
+nasa:
+    name: "NASA Image of the day"
+    base_url: "http://www.nasa.gov/rss/image_of_the_day.rss"
+    search_query: ""
+

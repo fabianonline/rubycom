@@ -1,0 +1,6 @@
+---
+dilbert:
+    name: "Dilbert"
+    base_url: "http://www.dilbert.com/strips/"
+    search_query: "div.STR_Image a img"
+

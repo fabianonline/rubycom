@@ -1,0 +1,6 @@
+---
+pants_are_overrated:
+    name: "Pants are overrated"
+    base_url: "http://www.pantsareoverrated.com/"
+    search_query: "div#comic img"
+

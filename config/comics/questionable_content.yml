@@ -1,0 +1,6 @@
+---
+questionable_content:
+    name: "Questionable Content"
+    base_url: "http://questionablecontent.net/"
+    search_query: "img#strip"
+

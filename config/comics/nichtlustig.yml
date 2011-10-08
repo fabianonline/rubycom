@@ -1,0 +1,6 @@
+---
+nichtlustig:
+    name: "Nichtlustig"
+    base_url: "http://nichtlustig.de/rss/nichtrss.rss"
+    search_query: "item table img[src*=comics]"
+

@@ -1,0 +1,6 @@
+---
+little_gamers:
+    name: "Little Gamers"
+    base_url: "http://www.little-gamers.com/"
+    search_query: "div#comic-middle img"
+

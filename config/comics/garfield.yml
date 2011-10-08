@@ -1,0 +1,6 @@
+---
+garfield:
+    name: "Garfield"
+    base_url: "http://www.gocomics.com/garfield/"
+    search_query: "p.feature_item img"
+

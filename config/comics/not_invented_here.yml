@@ -1,0 +1,6 @@
+---
+not_invented_here:
+    name: "Not invented here"
+    base_url: "http://notinventedhe.re"
+    search_query: "#comic-content a img"
+

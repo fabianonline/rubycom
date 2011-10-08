@@ -1,0 +1,6 @@
+---
+ctrl-alt-del:
+    name: "Ctrl-Alt-Del"
+    base_url: "http://www.cad-comic.com/cad"
+    search_query: "div#content > img"
+

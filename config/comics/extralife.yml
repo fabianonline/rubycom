@@ -1,0 +1,6 @@
+---
+extralife:
+    name: "Extralife"
+    base_url: "http://www.myextralife.com/"
+    search_query: "div.comic-content a img"
+

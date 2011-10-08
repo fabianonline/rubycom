@@ -1,0 +1,6 @@
+---
+shermans_lagoon:
+    name: "Sherman's Lagoon"
+    base_url: "http://www.slagoon.com/cgi-bin/sviewer.pl"
+    search_query: "body > p[align=LEFT] > img"
+
