@@ -165,6 +165,11 @@ not_invented_here:
     base_url: "http://notinventedhe.re"
     search_query: "#comic-content a img"
 
+optipess:
+    name: "Optipess"
+    base_url: "http://www.optipess.com/"
+    search_query: "div[id=\"comic\"] > img[src]"
+
 pajama_forest:
     name: "Pajama Forest"
     base_url: "http://pajamaforest.com/"
