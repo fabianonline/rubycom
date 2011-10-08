@@ -95,7 +95,7 @@ class ComicsController < ApplicationController
     begin
         comics = Comic.fetch_comic_list
     rescue Exception => ex
-        flash[:error] = ex.to_s + ex.backtrace.join("<br>")
+        flash[:error] = ex.to_s
         return
     end
     @updateable_comics = []

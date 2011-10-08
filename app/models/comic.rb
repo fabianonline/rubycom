@@ -232,7 +232,7 @@ class Comic < ActiveRecord::Base
             json = open("https://api.github.com/repos/fabianonline/rubycom/git/refs/heads/master") {|f| f.read }
             sha = ActiveSupport::JSON.decode(json)["object"]["sha"]
             json = open("https://api.github.com/repos/fabianonline/rubycom/git/trees/#{sha}?recursive=1") {|f| f.read }
-            files = ActiveSupport::JSON.decode(json)["tree"].select{|obj| obj["path"].starts_with? 'config/comics'}
+            files = ActiveSupport::JSON.decode(json)["tree"].select{|obj| obj["path"].starts_with? 'config/comics/'}
         rescue Exception => e
             raise "Problem beim Download der Liste der aktuellen Comics von github: #{e.to_s}"
         end
@@ -249,7 +249,7 @@ class Comic < ActiveRecord::Base
             file = file_object["path"]
             yml = ""
             begin
-            open("https://raw.github.com/fabianonline/rubycom/master/#{file}") do |src|
+                open("https://raw.github.com/fabianonline/rubycom/master/#{file}") do |src|
                 yml = src.read
             end
             rescue Exception => ex
