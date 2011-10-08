@@ -92,8 +92,11 @@ class ComicsController < ApplicationController
   end
 
   def update_online_list
-    Comic.fetch_comic_list
-    comics = get_comic_list
+    begin
+        comics = Comic.fetch_comic_list
+    rescue ex
+        
+    end
     @updateable_comics = []
     @new_comics = []
 
@@ -112,7 +115,7 @@ class ComicsController < ApplicationController
   end
 
   def use_online_list
-    comics = get_comic_list
+    comics = Comic.get_local_online_list
     params["comics"].each do |c|
       comic = Comic.find_or_initialize_by_directory(c)
       comic.update_attributes(comics[c])
@@ -126,13 +129,5 @@ class ComicsController < ApplicationController
     respond_to do |format|
       format.atom
     end
-  end
-
-  private
-  def get_comic_list
-    source, comics = Comic.get_local_online_list
-    flash[:error] = "Kein Schreibzugriff auf tmp/comics.yml möglich. Nutze die (nicht zwingend aktuelle) Datei config/comics.yml." if source==:config
-    flash[:error] = "Kein Schreibzugriff auf tmp/comics.yml möglich. Bitte korrigieren und dann nochmal versuchen." if source==:empty
-    return comics
   end
 end

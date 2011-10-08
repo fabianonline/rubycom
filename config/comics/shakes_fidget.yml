@@ -1,0 +1,6 @@
+---
+shakes_fidget:
+    name: "Shakes & Fidget"
+    base_url: "http://www.shakesandfidget.com/"
+    search_query: ".widget.ComicPressLatestThumbnailWidget a; #comic-1 img"
+

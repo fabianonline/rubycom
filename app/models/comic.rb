@@ -223,31 +223,50 @@ class Comic < ActiveRecord::Base
     end
   end
 
-  def self.fetch_comic_list
-    require 'open-uri'
-    yaml = ""
-    open("https://raw.github.com/fabianonline/rubycom/master/config/comics.yml") do |f|
-      yaml = f.read
+  
+  
+  
+    def self.fetch_comic_list
+        require 'open-uri'
+        begin
+            json = open("https://api.github.com/repos/fabianonline/rubycom/git/refs/heads/master") {|f| f.read }
+            sha = ActiveSupport::JSON.decode(json)["object"]["sha"]
+            json = open("https://api.github.com/repos/fabianonline/rubycom/git/trees/#{sha}?recursive=1") {|f| f.read }
+            files = ActiveSupport::JSON.decode(json)["tree"].select{|obj| obj["path"].starts_with? 'config/comics'}
+        rescue Exception => e
+            raise "Problem beim Download der Liste der aktuellen Comics von github: #{e.to_s}"
+        end
+        
+        # clear old files
+        begin
+            FileUtils.rm Dir.glob(File.join(RAILS_ROOT, 'config', 'comics', '*.yml'))
+        rescue Exception => e
+            raise "Problem beim Aufräumen des Comic-Verzeichnisses. Evtl. keine Schreibrechte? #{e.to_s}"
+        end
+        
+        # download files
+        files.each do |file|
+            open("https://raw.github.com/fabianonline/rubycom/master/#{file}") do |src|
+                begin
+                    open(File.join(RAILS_ROOT, file), "w") do |dst|
+                        dst.write src.read
+                    end
+                rescue Exception => e
+                    raise "Probleme beim Speichern der neuen Comic-Definition. Habe ich Schreibrechte auf config/comics?"
+                end
+            end
+        end
+        return self.get_local_online_list
     end
-    
-    begin
-      File.open(File.join(RAILS_ROOT, "/tmp/comics.yml"), "w") do |f|
-        f.write(yaml)
-      end
-    rescue
-      # do nothing
-    end
-  end
 
-  def self.get_local_online_list
-    if File.exist?(File.join(RAILS_ROOT, "/tmp/comics.yml"))
-      return :tmp, YAML::load_file(File.join(RAILS_ROOT, "/tmp/comics.yml"))
-    elsif File.exist?(File.join(RAILS_ROOT, "/config/comics.yml"))
-      return :config, YAML::load_file(File.join(RAILS_ROOT, "/config/comics.yml"))
-    else
-      return :empty, {}
+    def self.get_local_online_list
+        list = {}
+        Dir.glob(File.join(RAILS_ROOT, 'config', 'comics', '*.yml')).each do |file|
+            data = YAML::load_file(file)
+            list.merge! data
+        end
+        list
     end
-  end
 
   private
   def cleanup_regexp

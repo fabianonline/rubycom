@@ -1,0 +1,6 @@
+---
+wizard_of_id:
+    name: "Wizard of Id"
+    base_url: "http://www.arcamax.com/thefunnies/wizardofid"
+    search_query: "article.comic a img"
+
