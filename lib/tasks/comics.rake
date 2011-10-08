@@ -8,7 +8,7 @@ namespace :comics do
         leader+= "# It's only purpose is to be pushed to github and then be merged\n"
         leader+= "# into config/comics.yml by the maintainer of rubycom.\n"
         leader+= "\n"
-        leader+= "  ---\n"
+        leader+= "---\n"
         
         # FileUtils.rm Dir.glob(File.join(RAILS_ROOT, "config", "comics", "*.yml"))
         
@@ -24,6 +24,7 @@ namespace :comics do
                 f.write(string)
             end
         end
+    end
         
     desc "Merges all YAML files to config/comics.yml."
     task :merge => :environment do
@@ -43,6 +44,10 @@ namespace :comics do
         end
         
         File.open(File.join(RAILS_ROOT, 'config', 'comics.yml'), 'w') {|f| f.write string }
+    end
+    
+    desc "Dump the comics and then merge them."
+    task :dump_and_merge => [:dump, :merge] do
     end
 end
 
