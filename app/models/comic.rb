@@ -245,15 +245,24 @@ class Comic < ActiveRecord::Base
         end
         
         # download files
-        files.each do |file|
+        files.each do |file_object|
+            file = file_object["path"]
+            yml = ""
+            begin
             open("https://raw.github.com/fabianonline/rubycom/master/#{file}") do |src|
-                begin
-                    open(File.join(RAILS_ROOT, file), "w") do |dst|
-                        dst.write src.read
-                    end
-                rescue Exception => e
-                    raise "Probleme beim Speichern der neuen Comic-Definition. Habe ich Schreibrechte auf config/comics?"
+                yml = src.read
+            end
+            rescue Exception => ex
+                raise "Problem beim Download von #{file}: #{ex.to_s}"
+                next
+            end
+            
+            begin
+                open(File.join(RAILS_ROOT, file), "w") do |dst|
+                    dst.write yml
                 end
+            rescue Exception => e
+                raise "Probleme beim Speichern der neuen Comic-Definition. Habe ich Schreibrechte auf config/comics?"
             end
         end
         return self.get_local_online_list

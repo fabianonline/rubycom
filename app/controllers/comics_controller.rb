@@ -94,8 +94,9 @@ class ComicsController < ApplicationController
   def update_online_list
     begin
         comics = Comic.fetch_comic_list
-    rescue ex
-        
+    rescue Exception => ex
+        flash[:error] = ex.to_s + ex.backtrace.join("<br>")
+        return
     end
     @updateable_comics = []
     @new_comics = []

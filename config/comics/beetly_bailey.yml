@@ -1,6 +1,0 @@
----
-beetly_bailey:
-    name: "Beetly Bailey"
-    base_url: "http://www.arcamax.com/thefunnies/beetlebailey/"
-    search_query: "td.email img"
-
