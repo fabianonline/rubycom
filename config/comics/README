@@ -1,0 +1,8 @@
+This folder contains single comic strip definitions.
+These definitions can be created by rake comics:dump.
+
+These files will never be used by rubycom.
+In order to make them useable, they have to be merged into config/comics.yml.
+
+If you are the maintainer of this project: Use rake comics:merge to do this.
+If you are not the maintainer of this project: Commit your new definitions ans send me a pull request.
