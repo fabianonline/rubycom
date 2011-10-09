@@ -1,6 +1,6 @@
 class ComicsController < ApplicationController
   def index
-    @comics = Comic.all(:order=>"FIELD(status, 'errored', 'enabled', 'disabled'), error_count, name", :include=>:strips)
+    @comics = Comic.all(:order=>"FIELD(status, 'errored', 'enabled', 'disabled'), error_count DESC, name", :include=>:strips)
   end
 
   def show
