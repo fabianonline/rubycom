@@ -124,6 +124,11 @@ extralife:
     base_url: "http://www.myextralife.com/"
     search_query: "div.comic-content a img"
 
+frederik_fon_flatter:
+    name: "frederik fon flatter"
+    base_url: "http://www.fonflatter.de/"
+    search_query: "#content > p > a > img"
+
 garfield:
     name: "Garfield"
     base_url: "http://www.gocomics.com/garfield/"
@@ -133,6 +138,11 @@ garfield_minus_garfield:
     name: "Garfield minus Garfield"
     base_url: "http://garfieldminusgarfield.net/"
     search_query: "div.photo a img"
+
+geek_and_poke:
+    name: "Geek And Poke"
+    base_url: "http://geekandpoke.typepad.com/"
+    search_query: "img.image-full"
 
 google_doodle:
     name: "Google Doodle"
