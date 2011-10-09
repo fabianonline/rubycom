@@ -34,3 +34,13 @@ comics to your local comic list - if you wish.
 Of course. Fork this project, add new comics to your list (or repair existing comics) and then run
 `rake comics:dump`. This will regenerate `config/comics.yml` with your local comics. Commit, push and
 send me a pull request. I'll be happy to merge it.
+
+### Updates via github
+If you use the "Comic-Definitionen updaten" link, Rubycom will automatically pull the comic definitions from
+the "official" repository (fabianonline/rubycom/master), and you can select which of these definitions
+you want to use.
+
+### Updates via cron
+rubycom can fetch all comics from their individual websites via cron. The command you need to enter in your crontab is
+'path/to/rubycom/script/runner "Comic.update_all" -e production'. You can enter your email address in config/config.yml, so every time
+an error occurs (i.e. the source of a comic is not accessible), rubycom will send you a mail.
