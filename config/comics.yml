@@ -175,6 +175,11 @@ little_gamers:
     base_url: "http://www.little-gamers.com/"
     search_query: "div#comic-middle img"
 
+loading_artist:
+    name: "Loading Artist"
+    base_url: "http://www.loadingartist.com/"
+    search_query: "div.comicpane  img"
+
 nasa:
     name: "NASA Image of the day"
     base_url: "http://www.nasa.gov/rss/image_of_the_day.rss"
@@ -299,6 +304,11 @@ user_friendly:
     name: "User Friendly"
     base_url: "http://www.userfriendly.org/static/"
     search_query: "img[alt=\"Latest Strip\"]"
+
+vg_cats:
+    name: "VG Cats"
+    base_url: "http://www.vgcats.com/comics/"
+    search_query: "div[align=\"center\"] > img"
 
 wizard_of_id:
     name: "Wizard of Id"
