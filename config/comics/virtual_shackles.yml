@@ -8,5 +8,5 @@
 virtual_shackles:
     name: "Virtual Shackles"
     base_url: "http://www.virtualshackles.com/"
-    search_query: "div[id=\"comicbox\"] img"
+    search_query: "div#comicbox img"
 

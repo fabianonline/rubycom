@@ -8,5 +8,5 @@
 dueling_analogs:
     name: "Dueling Analogs"
     base_url: "http://duelinganalogs.com"
-    search_query: "div[id=\"comic\"] img"
+    search_query: "div#comic img"
 
