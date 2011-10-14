@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-optipess:
-    name: "Optipess"
-    base_url: "http://www.optipess.com/"
-    search_query: "div#comic > img[src]"
+hejibits:
+    name: "Hejibits"
+    base_url: "http://www.hejibits.com/"
+    search_query: "div.comicpane img"
 

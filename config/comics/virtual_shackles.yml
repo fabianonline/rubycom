@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-optipess:
-    name: "Optipess"
-    base_url: "http://www.optipess.com/"
-    search_query: "div#comic > img[src]"
+virtual_shackles:
+    name: "Virtual Shackles"
+    base_url: "http://www.virtualshackles.com/"
+    search_query: "div#comicbox img"
 
