@@ -109,6 +109,11 @@ dork_tower:
     base_url: "http://www.dorktower.com"
     search_query: "div.entry img"
 
+dueling_analogs:
+    name: "Dueling Analogs"
+    base_url: "http://duelinganalogs.com"
+    search_query: "div#comic img"
+
 el_goonish_shive:
     name: "El Goonish Shive"
     base_url: "http://www.egscomics.com/"
@@ -155,6 +160,11 @@ hagar_the_horrible:
     base_url: "http://www.arcamax.com/thefunnies/hagarthehorrible"
     search_query: "article.comic a img"
 
+hejibits:
+    name: "Hejibits"
+    base_url: "http://www.hejibits.com/"
+    search_query: "div.comicpane img"
+
 hijinks_ensue:
     name: "HijiNKS ENSUE"
     base_url: "http://hijinksensue.com/"
@@ -198,7 +208,7 @@ not_invented_here:
 optipess:
     name: "Optipess"
     base_url: "http://www.optipess.com/"
-    search_query: "div[id=\"comic\"] > img[src]"
+    search_query: "div#comic > img[src]"
 
 pajama_forest:
     name: "Pajama Forest"
@@ -309,6 +319,11 @@ vg_cats:
     name: "VG Cats"
     base_url: "http://www.vgcats.com/comics/"
     search_query: "div[align=\"center\"] > img"
+
+virtual_shackles:
+    name: "Virtual Shackles"
+    base_url: "http://www.virtualshackles.com/"
+    search_query: "div#comicbox img"
 
 wizard_of_id:
     name: "Wizard of Id"
