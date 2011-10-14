@@ -5,4 +5,6 @@ public/comics/*
 public/.htaccess
 tmp/**/*
 tmp/*
-
+*~
+.rvmrc
+server/*
