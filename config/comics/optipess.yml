@@ -8,5 +8,5 @@
 optipess:
     name: "Optipess"
     base_url: "http://www.optipess.com/"
-    search_query: "div[id=\"comic\"] > img[src]"
+    search_query: "div#comic > img[src]"
 

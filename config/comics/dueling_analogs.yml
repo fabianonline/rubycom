@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-union_der_helden:
-    name: "Union der Helden"
-    base_url: "http://www.unionderhelden.de"
-    search_query: "div.content dl.csc-textpic-image dt img"
+dueling_analogs:
+    name: "Dueling Analogs"
+    base_url: "http://duelinganalogs.com"
+    search_query: "div#comic img"
 

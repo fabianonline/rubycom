@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-pajama_forest:
-    name: "Pajama Forest"
-    base_url: "http://pajamaforest.com/"
+hejibits:
+    name: "Hejibits"
+    base_url: "http://www.hejibits.com/"
     search_query: "div.comicpane img"
 

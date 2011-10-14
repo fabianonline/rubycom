@@ -46,4 +46,5 @@ ActiveRecord::Schema.define(:version => 20110419183049) do
   add_index "strips", ["date"], :name => "index_strips_on_date"
   add_index "strips", ["hash_value"], :name => "index_strips_on_hash_value"
 
+
 end

@@ -21,7 +21,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'rails', :version=>'2.3.11'
   config.gem 'nokogiri', :version=>'1.4.4'
-  config.gem 'rmagick', :version=>'2.13.1', :lib=>'RMagick2'
+  config.gem 'rmagick', :version=>'2.13.1', :lib=>'RMagick'
   config.gem 'rdoc', :version=>'3.9.4'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
