@@ -29,13 +29,6 @@ ActiveRecord::Schema.define(:version => 20110419183049) do
 
   add_index "comics", ["name"], :name => "index_comics_on_name"
 
-  create_table "places", :force => true do |t|
-    t.integer "accuracy",  :null => false
-    t.integer "timestamp", :null => false
-    t.float   "north",     :null => false
-    t.float   "east",      :null => false
-  end
-
   create_table "strips", :force => true do |t|
     t.integer  "comic_id"
     t.datetime "date"
@@ -53,11 +46,5 @@ ActiveRecord::Schema.define(:version => 20110419183049) do
   add_index "strips", ["date"], :name => "index_strips_on_date"
   add_index "strips", ["hash_value"], :name => "index_strips_on_hash_value"
 
-  create_table "touchefilename", :force => true do |t|
-    t.string  "file",  :limit => 25, :null => false
-    t.integer "day",                 :null => false
-    t.integer "month",               :null => false
-    t.integer "year",                :null => false
-  end
 
 end
