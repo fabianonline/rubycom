@@ -245,6 +245,11 @@ reds_planet:
     base_url: "http://www.redsplanet.com/comic/"
     search_query: "#comic img"
 
+rob_and_elliot:
+    name: "Rob and Elliot"
+    base_url: "http://www.robandelliot.cycomics.com/index.php"
+    search_query: "#contentcomic img"
+
 rooster_teeth:
     name: "Rooster Teeth"
     base_url: "http://roosterteeth.com/comics/today.php"
