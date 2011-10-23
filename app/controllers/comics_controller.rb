@@ -70,7 +70,6 @@ class ComicsController < ApplicationController
       flash[:succes] = "Comic erfolgreich geändert."
       redirect_to debug_comic_url(@comic)
     else
-      flash[:error] = @comic.errors
       render :action=>:edit
     end
   end
@@ -86,7 +85,6 @@ class ComicsController < ApplicationController
       flash[:succes] = "Comic erfolgreich gespeichert."
       redirect_to debug_comic_url(@comic)
     else
-      flash[:error] = @comic.errors
       render :action=>:edit
     end
   end
