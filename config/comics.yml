@@ -180,6 +180,11 @@ kevin_and_kell:
     base_url: "http://www.kevinandkell.com/"
     search_query: "div#comic a img"
 
+least_i_could_do:
+    name: "Least I could do"
+    base_url: "http://www.leasticoulddo.com/"
+    search_query: "#comic img"
+
 little_gamers:
     name: "Little Gamers"
     base_url: "http://www.little-gamers.com/"
@@ -208,7 +213,7 @@ not_invented_here:
 optipess:
     name: "Optipess"
     base_url: "http://www.optipess.com/"
-    search_query: "div#comic > img[src]"
+    search_query: "#comic-1 img"
 
 pajama_forest:
     name: "Pajama Forest"
@@ -299,6 +304,11 @@ the_warehouse:
     name: "The Warehouse"
     base_url: "http://www.warehousecomic.com/index.php"
     search_query: "div.comicHolder div[align=center] > img"
+
+tot_aber_lustig:
+    name: "Tot aber lustig"
+    base_url: "http://www.totaberlustig.com/"
+    search_query: "#comic img"
 
 touche:
     name: "Touche"
