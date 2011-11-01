@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-optipess:
-    name: "Optipess"
-    base_url: "http://www.optipess.com/"
-    search_query: "#comic-1 img"
+tot_aber_lustig:
+    name: "Tot aber lustig"
+    base_url: "http://www.totaberlustig.com/"
+    search_query: "#comic img"
 
