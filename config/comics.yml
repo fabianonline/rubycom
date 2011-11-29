@@ -278,7 +278,7 @@ scenes_from_a_multiverse:
 shakes_and_fidget:
     name: "Shakes & Fidget"
     base_url: "http://www.shakesandfidget.com/"
-    search_query: ".widget.ComicPressLatestThumbnailWidget a; #comic-1 img"
+    search_query: ".widget.comicpress_latest_thumbnail_widget a; #comic-1 img"
 
 shermans_lagoon:
     name: "Sherman's Lagoon"
