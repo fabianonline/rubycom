@@ -10,7 +10,7 @@
 accidental_centaurs:
     name: "Accidental Centaurs"
     base_url: "http://www.accidentalcentaurs.com"
-    search_query: "div.comic2 img"
+    search_query: "#comic-1 img"
 
 amazing_superpowers:
     name: "Amazing Superpowers"
