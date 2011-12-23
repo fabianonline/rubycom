@@ -35,6 +35,7 @@ function update_all_strips() {
 <table>
   <tr>
     <th>Name</th>
+	<th>Ident</th>
     <th>Anzahl</th>
     <th>Alter</th>
     <th>Fehler</th>
@@ -45,6 +46,7 @@ function update_all_strips() {
   <% @comics.each do |comic| %>
     <tr class="comic <%= cycle("odd", "even") %> <%= comic.status %> <%= comic.error_count>0?"errors":"" %>">
       <td><%= link_to comic.name, comic %></td>
+			<td><%= comic.directory %></td>
       <td><%= comic.strips.count %></td>
       <td><%= time_ago_in_words(comic.strips.last.date) rescue "Nie" %></td>
       <td><%= comic.error_count %></td>
