@@ -123,13 +123,13 @@ class Comic < ActiveRecord::Base
     return file
   end
 
-  def create_strip(filename, element, url, hash, length)
+  def create_strip(filename, element, url, hash, length, date=nil)
     strip = Strip.new
-    strip.title_tag = element["title"] || ""
-    strip.alt_tag = element["alt"] || ""
+    strip.title_tag = element["title"] || "" rescue ""
+    strip.alt_tag = element["alt"] || "" rescue ""
     strip.filename = filename
     strip.url = url.to_s
-    strip.date = DateTime.now
+    strip.date = date || DateTime.now
     strip.bytes = length
     strip.comic = self
     strip.hash_value = hash

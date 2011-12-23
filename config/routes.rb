@@ -44,8 +44,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :strips, :only=>[:show]
   map.comic_update 'comics/:id/update', :controller=>:comics, :action=>:get_new_strip
   map.feed 'feed', :controller=>:comics, :action=>:feed
-  map.resources :comics
+  map.import_comics 'comics/import', :controller=>:comics, :action=>:prepare_import, :conditions=>{:method=>:get}
+  map.import_comics 'comics/import', :controller=>:comics, :action=>:do_import, :conditions=>{:method=>:post}
+map.resources :comics
   map.debug_comic 'comics/:id/debug', :controller=>:comics, :action=>:debug
+  
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should

@@ -1,0 +1,8 @@
+Bitte erzeugen Sie ein ZIP-File. Inhalt:
+
+Ein Ordner mit dem ident des Comics als Namen und darin
+Bilddateien mit eindeutig das Datum des Comics beinhaltenden Dateinamen.
+
+<% form_tag import_comics_url, :multipart=>true do %>
+	<%= file_field 'comics', 'zipfile' %> <%= submit_tag "Upload" %>
+<% end %>

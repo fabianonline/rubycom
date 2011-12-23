@@ -126,6 +126,48 @@ class ComicsController < ApplicationController
       format.atom
     end
   end
+
+	def prepare_import
+	end
+	
+	def do_import
+		require 'zip/zipfilesystem'
+		require 'tempfile'
+		@messages = []
+		temp = Tempfile.new('zip')
+		temp.write(params['comics']['zipfile'].read)
+		temp.close
+		Zip::ZipFile.open(temp.path) do |zip|
+			dir = zip.dir
+			dir.entries('.').each do |dir|
+				comic = Comic.find_by_directory(dir)
+				@messages << "Comic #{dir} unbekannt." and next unless comic
+				comicdir = zip.dir.open(dir)
+				comicdir.entries.each do |filename|
+					parts = /((?:19|20)?[0-9]{2})[\-._]?([0-9]{2})[\-._]?([0-9]{2})/.match(filename) or next
+					@messages << "Datum gefunden: #{parts.inspect}"
+					year = parts[1]
+					if parts[1].length == 2
+						if parts[1].to_i < 50
+							year = "20"+parts[1]
+						else
+							year = "19"+parts[1]
+						end
+					end
+					date = DateTime.new year.to_i, parts[2].to_i, parts[3].to_i, 12, 0, 0
+					data = zip.read("#{dir}/#{filename}")
+					hash = comic.calculate_hash_value data
+					length = data.length
+					extension = comic.analyze_image_data data
+					unless comic.image_data_known? (hash, length)
+						local_file = comic.save_image_data(data, "", extension)
+						comic.create_strip(local_file, nil, "", hash, length, date)
+					end
+				end
+			end
+		end
+		temp.unlink
+	end
   
   private
   def get_comic_list
