@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-accidental_centaurs:
-    name: "Accidental Centaurs"
-    base_url: "http://www.accidentalcentaurs.com"
-    search_query: "#comic-1 img"
+action_trip:
+    name: "ActionTrip"
+    base_url: "http://www.actiontrip.com/index/comics.phtml"
+    search_query: ".comicarchiveline a; img#comic"
 

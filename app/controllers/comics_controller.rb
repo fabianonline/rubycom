@@ -121,7 +121,7 @@ class ComicsController < ApplicationController
   end
 
   def feed
-    @strips = Comic.all(:order=>:name).collect{|c| c.strips.last(5)}.flatten
+    @strips = Comic.all(:order=>:name).collect{|c| c.strips.find(:all, :order=>"date DESC", :limit=>5)}.flatten
     respond_to do |format|
       format.atom
     end
