@@ -178,7 +178,7 @@ hijinks_ensue:
 joy_of_tech:
     name: "Joy of Tech"
     base_url: "http://www.geekculture.com/joyoftech/"
-    search_query: "td[valign=top] > div[align=center] p img"
+    search_query: "td[valign=top] > div[align=center] p > img"
 
 kevin_and_kell:
     name: "Kevin and Kell"
