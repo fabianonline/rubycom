@@ -310,6 +310,11 @@ the_warehouse:
     base_url: "http://www.warehousecomic.com/index.php"
     search_query: "div.comicHolder div[align=center] > img"
 
+the_wotch:
+    name: "The Wotch"
+    base_url: "http://www.thewotch.com/"
+    search_query: "div.comic2 img"
+
 tot_aber_lustig:
     name: "Tot aber lustig"
     base_url: "http://www.totaberlustig.com/"
