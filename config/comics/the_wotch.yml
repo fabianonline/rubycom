@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-dork_tower:
-    name: "DorkTower"
-    base_url: "http://www.dorktower.com"
-    search_query: ".entry-content img"
+the_wotch:
+    name: "The Wotch"
+    base_url: "http://www.thewotch.com/"
+    search_query: "div.comic2 img"
 

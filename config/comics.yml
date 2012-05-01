@@ -112,7 +112,7 @@ dominic_deegan:
 dork_tower:
     name: "DorkTower"
     base_url: "http://www.dorktower.com"
-    search_query: "div.entry img"
+    search_query: ".entry-content img"
 
 dueling_analogs:
     name: "Dueling Analogs"
@@ -178,7 +178,7 @@ hijinks_ensue:
 joy_of_tech:
     name: "Joy of Tech"
     base_url: "http://www.geekculture.com/joyoftech/"
-    search_query: "td[valign=top] > div[align=center] p img"
+    search_query: "td[valign=top] > div[align=center] p > img"
 
 kevin_and_kell:
     name: "Kevin and Kell"
@@ -309,6 +309,11 @@ the_warehouse:
     name: "The Warehouse"
     base_url: "http://www.warehousecomic.com/index.php"
     search_query: "div.comicHolder div[align=center] > img"
+
+the_wotch:
+    name: "The Wotch"
+    base_url: "http://www.thewotch.com/"
+    search_query: "div.comic2 img"
 
 tot_aber_lustig:
     name: "Tot aber lustig"
