@@ -59,10 +59,20 @@ beetlebum:
     base_url: "http://blog.beetlebum.de"
     search_query: "div.entry img[src]"
 
+brawl_in_the_family:
+    name: "Brawl In The Family"
+    base_url: "http://brawlinthefamily.keenspot.com/"
+    search_query: "div#comic img"
+
 bug:
     name: "Bug"
     base_url: "http://www.bugcomic.com/"
     search_query: "#comic-1 img"
+
+buttersafe:
+    name: "Buttersafe"
+    base_url: "http://buttersafe.com/"
+    search_query: "div#comic > img"
 
 calm_blue_oceans:
     name: "Calm Blue Oceans"
@@ -78,6 +88,11 @@ cleopatra_in_space:
     name: "Cleopatra in Space"
     base_url: "http://www.cowshell.com/cleopatra/"
     search_query: "div#comic img"
+
+completely_serious_comics:
+    name: "Completely Serious Comics"
+    base_url: "http://completelyseriouscomics.com"
+    search_query: "div.comicpane img"
 
 ctrl-alt-del:
     name: "Ctrl-Alt-Del"
@@ -123,6 +138,11 @@ dueling_analogs:
     name: "Dueling Analogs"
     base_url: "http://duelinganalogs.com"
     search_query: "div#comic img"
+
+eat_that_toast:
+    name: "Eat that Toast"
+    base_url: "http://eatthattoast.com"
+    search_query: "div.comicpane img"
 
 el_goonish_shive:
     name: "El Goonish Shive"
@@ -215,6 +235,11 @@ nasa:
     base_url: "http://www.nasa.gov/rss/image_of_the_day.rss"
     search_query: ""
 
+nerf_now:
+    name: "Nerf Now"
+    base_url: "http://www.nerfnow.com/"
+    search_query: "div#comic img"
+
 nichtlustig:
     name: "Nichtlustig"
     base_url: "http://nichtlustig.de/rss/nichtrss.rss"
@@ -280,6 +305,11 @@ ruthe:
     base_url: "http://ruthe.de/"
     search_query: "div#cartoon img"
 
+sarah_burrini:
+    name: "Sarah Burrini"
+    base_url: "http://sarahburrini.com/wordpress/"
+    search_query: "div.comicpane img"
+
 scandinavia_and_the_world:
     name: "Scandinavia and the world"
     base_url: "http://satwcomic.com/"
@@ -300,10 +330,20 @@ shermans_lagoon:
     base_url: "http://www.slagoon.com/cgi-bin/sviewer.pl"
     search_query: "body > p[align=LEFT] > img"
 
+shoeboxblog:
+    name: "Shoeboxblog"
+    base_url: "http://www.shoeboxblog.com/"
+    search_query: "div.post_content img"
+
 sinfest:
     name: "Sinfest"
     base_url: "http://www.sinfest.net/index.php"
     search_query: "table#AutoNumber2 p[align=center] > img"
+
+something_of_that_ilk:
+    name: "Something of that Ilk"
+    base_url: "http://www.somethingofthatilk.com"
+    search_query: "div.comic > img"
 
 spinnerette:
     name: "Spinnerette"
