@@ -34,6 +34,11 @@ applegeeks_lite:
     base_url: "http://www.applegeeks.com/lite/"
     search_query: "div#strip img"
 
+awkward_zombie:
+    name: "Awkward Zombie"
+    base_url: "http://awkwardzombie.com"
+    search_query: "#comic img"
+
 battlepug:
     name: "Battlepug"
     base_url: "http://battlepug.com"
@@ -185,6 +190,11 @@ kevin_and_kell:
     base_url: "http://www.kevinandkell.com/"
     search_query: "div#comic a img"
 
+league_of_super_redundant_heroes:
+    name: "League of Super Redundant Heroes"
+    base_url: "http://superredundant.com/"
+    search_query: "#comic-1 img"
+
 least_i_could_do:
     name: "Least I could do"
     base_url: "http://www.leasticoulddo.com/"
@@ -228,7 +238,7 @@ pajama_forest:
 pants_are_overrated:
     name: "Pants are overrated"
     base_url: "http://www.pantsareoverrated.com/"
-    search_query: "div#comic img"
+    search_query: "div#comic-1 img"
 
 penny_arcade:
     name: "Penny Arcade"
@@ -363,5 +373,5 @@ wulffmorgenthaler:
 xkcd:
     name: "XKCD"
     base_url: "http://xkcd.com"
-    search_query: "div.bd div.c div.s > img"
+    search_query: "div#comic img"
 
