@@ -1,3 +1,4 @@
+Gemfile.lock
 *.log
 config/database.yml
 config/config.yml

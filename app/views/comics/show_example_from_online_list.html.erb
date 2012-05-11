@@ -1,0 +1,7 @@
+<h1>Beispiel für <%= @comic.name %></h1>
+
+<% if !@data.has_key?(:image_data) || @data[:exception] %>
+  <strong>o_O Der Download des Bildes hat nicht funktioniert.<br /><br />Entweder ist die Comicdefinition defekt - oder aber der Server des Comics failt gerade. Bitte versuche es später nochmal.</strong>
+<% else %>
+  <img src="data:<%= @data[:image_data][:content_type] %>;base64,<%= Base64.encode64(@data[:image_data][:data]) %>" />
+<% end %>

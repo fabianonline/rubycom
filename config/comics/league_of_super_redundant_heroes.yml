@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-xkcd:
-    name: "XKCD"
-    base_url: "http://xkcd.com"
-    search_query: "div#comic img"
+league_of_super_redundant_heroes:
+    name: "League of Super Redundant Heroes"
+    base_url: "http://superredundant.com/"
+    search_query: "#comic-1 img"
 

@@ -120,6 +120,12 @@ class ComicsController < ApplicationController
     redirect_to comics_url
   end
 
+  def show_example_from_online_list
+    comics = get_comic_list
+    @comic = Comic.new(comics[params[:ident]])
+    @data = @comic.get_new_strip(:debug=>true).last
+  end
+
   def feed
     @strips = Comic.all(:order=>:name).collect{|c| c.strips.find(:all, :order=>"date DESC", :limit=>5)}.flatten.sort_by{|strip| strip.date}.reverse
     respond_to do |format|
