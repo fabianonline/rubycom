@@ -1,2 +1,2 @@
 <h2><%= link_to @strip.comic.name, comic_url(@strip.comic) %> vom <%= l @strip.date.to_date, :format=>:very_long %></h2>
-<%= image_tag_for_strip @strip %>
+<%= render :partial=>"common/strip", :locals=>{:strip=>@strip} %>

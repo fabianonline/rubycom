@@ -1,0 +1,12 @@
+<div class="strip">
+	<%= image_tag_for_strip strip %>
+	<span class="additional">
+		<% if strip.title_tag %>
+			<strong>Title:</strong> <%= strip.title_tag %><br />
+		<% end %>
+		<% if strip.alt_tag %>
+			<strong>Alt:</strong> <%= strip.alt_tag %>
+		<% end %>
+	</span>
+	<br style="clear: left; height: 0px;" />
+</div>

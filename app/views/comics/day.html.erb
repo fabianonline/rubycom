@@ -13,7 +13,7 @@
 <% @comics.each do |comic| %>
   <h2><%= link_to comic.name, comic_url(comic) %></h2>
   <% comic.strips.by_date(@date).each do |strip| %>
-    <%= image_tag_for_strip strip %>
+	<%= render :partial=>"common/strip", :locals=>{:strip=>strip} %>
   <% end %>
 <% end %>
 
