@@ -8,5 +8,5 @@
 cleopatra_in_space:
     name: "Cleopatra in Space"
     base_url: "http://www.cowshell.com/cleopatra/"
-    search_query: "div#comic img"
+    search_query: "div.comicpress_latest_thumbnail_widget a; div#comic-1 img"
 

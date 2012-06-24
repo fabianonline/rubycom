@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-spinnerette:
-    name: "Spinnerette"
-    base_url: "http://www.spinnyverse.com/"
-    search_query: "div#comic-1 a img"
+did_you_know_gaming:
+    name: "Did you know gaming"
+    base_url: "http://didyouknowgaming.com/"
+    search_query: ".class2 img"
 
