@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.day 'day/:date', :controller=>:comics, :action=>:day
+  map.mark_as_read 'day/:date/mark_as_read', :controller=>:comics, :action=>:mark_as_read
   map.daylist 'day', :controller=>:comics, :action=>:daylist
   map.root :controller=>:comics, :action=>:daylist
   map.update_online_list 'comics/update_online_list', :controller=>:comics, :action=>:update_online_list

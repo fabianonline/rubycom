@@ -18,6 +18,16 @@ class ComicsController < ApplicationController
     @comics = Comic.enabled.all(:order=>:name, :include=>:strips).select{|c| c.strips.by_date(@date).count>0}
   end
 
+  def mark_as_read
+	  date = Date.parse(params[:date])
+	  ReadDay.find_or_create_by_day(date)
+	  if params[:go_to_next_day]
+		  date = date + 1
+		  redirect_to :action=>:day, :date=>date and return
+      end
+	  redirect_to :action=>:daylist
+  end
+
   # Wird nur per AJAX aufgerufen.
   def get_new_strip
     comic = Comic.find(params[:id])
@@ -40,6 +50,7 @@ class ComicsController < ApplicationController
   def daylist
     @start = Strip.find(:first, :order=>:date).date.to_date rescue nil
     @end = (Time.now.hour>=12 ? Date.tomorrow : Date.today)
+	@read_days = ReadDay.find(:all, :order=>:day).collect(&:day)
   end
 
   def destroy

@@ -77,3 +77,7 @@ ul.menu {
 .menu li a {
   color: #00f;
 }
+
+a.unread {
+	font-weight: bold;
+}
