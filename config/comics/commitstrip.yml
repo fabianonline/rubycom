@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-beetlebum:
-    name: "Beetlebum"
-    base_url: "http://blog.beetlebum.de"
+commitstrip:
+    name: "Commitstrip"
+    base_url: "http://www.commitstrip.com/en/"
     search_query: "div.entry-content img[src]"
 
