@@ -39,9 +39,14 @@ th, td {
 }
 
 img.strip {
-  display:block;
   padding-bottom: 25px;
   padding-left: 25px;
+  padding-right: 25px;
+  float: left;
+}
+
+div.strip .additional, .strip .additional strong {
+	vertical-align: top;
 }
 
 a.inactive {
@@ -71,4 +76,8 @@ ul.menu {
 
 .menu li a {
   color: #00f;
+}
+
+a.unread {
+	font-weight: bold;
 }

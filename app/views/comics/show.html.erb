@@ -2,7 +2,7 @@
 <h1><%= @comic.name %></h1>
 <% @strips.each do |strip| %>
   <h2><%= l strip.date.to_date, :format=>:very_long %></h2>
-  <%= image_tag_for_strip strip %>
+  <%= render :partial=>"common/strip", :locals=>{:strip=>strip} %>
 <% end %>
 
 <%= will_paginate @strips %>

@@ -1,6 +1,6 @@
 <% if @start %>
   <% @end.downto(@start) do |day| %>
-    <%= link_to day, :action=>:day, :date=>day %>
+	  <%= link_to day, {:action=>:day, :date=>day}, :class=>(@read_days.include?(day) ? 'read' : 'unread') %>
     <% if day==Date.tomorrow || (day==Date.today && Time.now.hour<12) %>
       (vorläufig!)
     <% end %>

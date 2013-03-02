@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110419183049) do
+ActiveRecord::Schema.define(:version => 20130129184400) do
 
   create_table "comics", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,10 @@ ActiveRecord::Schema.define(:version => 20110419183049) do
   end
 
   add_index "comics", ["name"], :name => "index_comics_on_name"
+
+  create_table "read_days", :force => true do |t|
+    t.date "day"
+  end
 
   create_table "strips", :force => true do |t|
     t.integer  "comic_id"

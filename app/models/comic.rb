@@ -47,7 +47,11 @@ class Comic < ActiveRecord::Base
     require 'open-uri'
     html = ''
     open(override_url || base_url) do |f|
-      html = f.read
+	  if f.content_encoding == ["gzip"]
+		  html = Zlib::GzipReader.new(f).read
+	  else
+		  html = f.read
+	  end
     end
     return html
   end

@@ -10,7 +10,7 @@
 accidental_centaurs:
     name: "Accidental Centaurs"
     base_url: "http://www.accidentalcentaurs.com"
-    search_query: "#comic-1 img"
+    search_query: ".webcomic-object-full img"
 
 action_trip:
     name: "ActionTrip"
@@ -87,7 +87,7 @@ calvin_and_hobbes:
 cleopatra_in_space:
     name: "Cleopatra in Space"
     base_url: "http://www.cowshell.com/cleopatra/"
-    search_query: "div#comic img"
+    search_query: "div.comicpress_latest_thumbnail_widget a; div#comic-1 img"
 
 completely_serious_comics:
     name: "Completely Serious Comics"
@@ -108,6 +108,11 @@ der_flix:
     name: "Der Flix"
     base_url: "http://der-flix.de/index.php"
     search_query: "td > img"
+
+did_you_know_gaming:
+    name: "Did you know gaming"
+    base_url: "http://didyouknowgaming.com/"
+    search_query: ".class2 img"
 
 diesel_sweeties:
     name: "diesel sweeties"
@@ -347,7 +352,7 @@ something_of_that_ilk:
 
 spinnerette:
     name: "Spinnerette"
-    base_url: "http://www.krakowstudios.com/spinnerette/"
+    base_url: "http://www.spinnyverse.com/"
     search_query: "div#comic-1 a img"
 
 sunday_morning_breakfast_cereal:
