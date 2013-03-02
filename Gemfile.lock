@@ -30,6 +30,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler
   json (= 1.7.0)
   mysql (= 2.8.1)
   nokogiri (= 1.4.4)
