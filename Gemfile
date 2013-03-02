@@ -1,5 +1,6 @@
 source :rubygems
 
+gem 'bundler'
 gem 'rails', '2.3.11'
 gem 'nokogiri', '1.4.4'
 gem 'rmagick', '2.13.1'

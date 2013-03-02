@@ -138,7 +138,11 @@ class ComicsController < ApplicationController
   end
 
   def feed
+<<<<<<< HEAD
     @strips = Comic.all(:order=>:name).collect{|c| c.strips.find(:all, :order=>"date DESC", :limit=>5)}.flatten.sort_by{|strip| strip.date}.reverse
+=======
+    @strips = Comic.all(:order=>:name).collect{|c| c.strips.find(:all, :order=>"date DESC", :limit=>5)}.flatten.sort_by{|s| s.date}.reverse
+>>>>>>> a9104bf35c0d67a5f8496b7f115b4f87906b326d
     respond_to do |format|
       format.atom
     end
