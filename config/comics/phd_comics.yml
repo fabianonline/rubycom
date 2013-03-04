@@ -1,0 +1,12 @@
+# This file contains a single comic strip definition.
+# It was created by rake comics:dump and can be overwritten at any time.
+# THIS FILE IS NOT DIRECTLY USED BY RUBYCOM!
+# It's only purpose is to be pushed to github and then be merged
+# into config/comics.yml by the maintainer of rubycom.
+
+---
+phd_comics:
+    name: "PHD Comics"
+    base_url: "http://www.phdcomics.com/comics.php"
+    search_query: "td[align=\"center\"] > img[align=\"top\"]"
+
