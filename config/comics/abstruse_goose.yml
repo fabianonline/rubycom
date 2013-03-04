@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-beetlebum:
-    name: "Beetlebum"
-    base_url: "http://blog.beetlebum.de"
-    search_query: "div.entry-content img[src]"
+abstruse_goose:
+    name: "Abstruse Goose"
+    base_url: "http://abstrusegoose.com/"
+    search_query: "section > img"
 
