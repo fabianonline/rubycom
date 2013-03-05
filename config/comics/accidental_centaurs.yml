@@ -8,5 +8,5 @@
 accidental_centaurs:
     name: "Accidental Centaurs"
     base_url: "http://www.accidentalcentaurs.com"
-    search_query: ".webcomic-object-full img"
+    search_query: "img.attachment-full"
 

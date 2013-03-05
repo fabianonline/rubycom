@@ -7,10 +7,15 @@
 # definitions can't be downloaded from github.
 # This file in tmp/ is the most recently downloaded version.
 
+abstruse_goose:
+    name: "Abstruse Goose"
+    base_url: "http://abstrusegoose.com/"
+    search_query: "section > img"
+
 accidental_centaurs:
     name: "Accidental Centaurs"
     base_url: "http://www.accidentalcentaurs.com"
-    search_query: ".webcomic-object-full img"
+    search_query: "img.attachment-full"
 
 action_trip:
     name: "ActionTrip"
@@ -57,7 +62,7 @@ beetle_bailey:
 beetlebum:
     name: "Beetlebum"
     base_url: "http://blog.beetlebum.de"
-    search_query: "div.entry img[src]"
+    search_query: "div.entry-content img[src]"
 
 brawl_in_the_family:
     name: "Brawl In The Family"
@@ -88,6 +93,11 @@ cleopatra_in_space:
     name: "Cleopatra in Space"
     base_url: "http://www.cowshell.com/cleopatra/"
     search_query: "div.comicpress_latest_thumbnail_widget a; div#comic-1 img"
+
+commitstrip:
+    name: "Commitstrip"
+    base_url: "http://www.commitstrip.com/en/"
+    search_query: "div.entry-content img[src]"
 
 completely_serious_comics:
     name: "Completely Serious Comics"
@@ -138,6 +148,11 @@ dork_tower:
     name: "DorkTower"
     base_url: "http://www.dorktower.com"
     search_query: ".entry-content img"
+
+dorkly:
+    name: "Dorkly"
+    base_url: "http://www.dorkly.com/comics"
+    search_query: "a.continue_link; .the_comic .media img"
 
 dueling_analogs:
     name: "Dueling Analogs"
@@ -198,17 +213,22 @@ hagar_the_horrible:
 hejibits:
     name: "Hejibits"
     base_url: "http://www.hejibits.com/"
-    search_query: "div.comicpane img"
+    search_query: ".comicpane img"
 
 hijinks_ensue:
     name: "HijiNKS ENSUE"
     base_url: "http://hijinksensue.com/"
     search_query: "#comic-1 img"
 
+hipster_hitler:
+    name: "Hipster Hitler"
+    base_url: "http://hipsterhitler.com/"
+    search_query: "div.entry-content img[src]"
+
 joy_of_tech:
     name: "Joy of Tech"
     base_url: "http://www.geekculture.com/joyoftech/"
-    search_query: "td[valign=top] > div[align=center] p > img"
+    search_query: "section.episode-body img.art-image"
 
 kevin_and_kell:
     name: "Kevin and Kell"
@@ -228,7 +248,7 @@ least_i_could_do:
 little_gamers:
     name: "Little Gamers"
     base_url: "http://www.little-gamers.com/"
-    search_query: "div#comic-middle img"
+    search_query: "img#comic"
 
 loading_artist:
     name: "Loading Artist"
@@ -363,7 +383,7 @@ sunday_morning_breakfast_cereal:
 the_warehouse:
     name: "The Warehouse"
     base_url: "http://www.warehousecomic.com/index.php"
-    search_query: "div.comicHolder div[align=center] > img"
+    search_query: "#comic-1 img"
 
 the_wotch:
     name: "The Wotch"

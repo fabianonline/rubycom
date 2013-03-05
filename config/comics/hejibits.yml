@@ -8,5 +8,5 @@
 hejibits:
     name: "Hejibits"
     base_url: "http://www.hejibits.com/"
-    search_query: "div.comicpane img"
+    search_query: ".comicpane img"
 

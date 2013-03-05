@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-the_warehouse:
-    name: "The Warehouse"
-    base_url: "http://www.warehousecomic.com/index.php"
-    search_query: "#comic-1 img"
+dorkly:
+    name: "Dorkly"
+    base_url: "http://www.dorkly.com/comics"
+    search_query: "a.continue_link; .the_comic .media img"
 
