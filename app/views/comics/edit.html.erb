@@ -15,11 +15,11 @@ function set_directory() {
   <%= f.error_messages %>
   <%= f.label :name, "Name" %> <%= f.text_field :name, :onchange=>"set_directory();" %><br />
   <%= f.label :base_url, "Basis-URL" %> <%= f.text_field :base_url %><br />
-  <%= f.label :search_query, "CSS-Selektor" %> <%= f.text_field :search_query, :size=>80 %> (für RSS-Feeds einfach leer lassen)<br />
+  <%= f.label :search_query, "CSS-Selektor" %> <%= f.text_field :search_query, :size=>80 %> (fuer RSS-Feeds einfach leer lassen)<br />
   <%= f.label :regexp_search, "Regexp-Suche" %> <%= f.text_field :regexp_search %><br />
   <%= f.label :regexp_replace, "Regexp-Ersatz" %> <%= f.text_field :regexp_replace %><br />
   <%= f.label :directory, "Zielverzeichnis" %> <%= f.text_field :directory %><br />
-  <%= f.label :ignore_size, "Bildgröße ignorieren" %> <%= f.check_box :ignore_size %><br />
+  <%= f.label :ignore_size, "Bildgroesse ignorieren" %> <%= f.check_box :ignore_size %><br />
   <%= f.label :status, "Status" %> <%= f.select :status, [["Aktiv", "enabled"], ["Inaktiv", "disabled"]] %><br />
   <%= f.submit %>
 <% end %>

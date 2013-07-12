@@ -53,7 +53,7 @@ function update_all_strips() {
       <td><%= comic.last_error_message %></td>
       <td><%= link_to image_tag("icons/picture_edit.png", :title=>"Comic bearbeiten", :class=>"button"), edit_comic_path(comic) %>
           <%= link_to image_tag("icons/bug.png", :title=>"Debug-Ansicht", :class=>"button"), debug_comic_url(comic) %>
-          <%= link_to image_tag("icons/picture_delete.png", :title=>"Löschen", :class=>"button"), comic, :method=>:delete, :confirm=>"Wirklich löschen? Es werden auch alle Bilder und so gelöscht..." %>
+          <%= link_to image_tag("icons/picture_delete.png", :title=>"Loeschen", :class=>"button"), comic, :method=>:delete, :confirm=>"Wirklich loeschen? Es werden auch alle Bilder und so geloescht..." %>
           <a href="#" class="comic_update_link" data-comic-update-url="<%= h comic_update_url(comic, :format=>:json) %>" onClick="update_strip(this); return false;">
             <%= image_tag("icons/arrow_refresh.png", :title=>"Update", :class=>"button") %>
           </a>
@@ -63,7 +63,7 @@ function update_all_strips() {
 </table>
 
 <br />
-<%= link_to "Comic hinzufügen", new_comic_url %><br />
+<%= link_to "Comic hinzufuegen", new_comic_url %><br />
 <a href="#" onClick="update_all_strips(); return false;">Alle Comics updaten</a><br />
 <br />
 <%= link_to "Comic-Definitionen updaten", update_online_list_url %>
