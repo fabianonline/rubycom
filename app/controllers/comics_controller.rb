@@ -60,7 +60,7 @@ class ComicsController < ApplicationController
     else
       FileUtils.rm_r(@comic.image_path()) rescue ""
       @comic.destroy
-      flash[:success] = "Erfolgreich gelöscht."
+      flash[:success] = "Erfolgreich geloescht."
     end
     redirect_to comics_url
   end
@@ -78,7 +78,7 @@ class ComicsController < ApplicationController
     @comic = Comic.find(params[:id])
     params[:comic][:error_count] = 0
     if @comic.update_attributes(params[:comic])
-      flash[:succes] = "Comic erfolgreich geändert."
+      flash[:succes] = "Comic erfolgreich geaendert."
       redirect_to debug_comic_url(@comic)
     else
       render :action=>:edit
@@ -147,8 +147,8 @@ class ComicsController < ApplicationController
   private
   def get_comic_list
       source, comics = Comic.get_local_online_list
-      flash[:error] = "Kein Schreibzugriff auf tmp/comics.yml möglich. Nutze die (nicht zwingend aktuelle) Datei config/comics.yml." if source==:config
-      flash[:error] = "Kein Schreibzugriff auf tmp/comics.yml möglich. Bitte korrigieren und dann nochmal versuchen." if source==:empty
+      flash[:error] = "Kein Schreibzugriff auf tmp/comics.yml moeglich. Nutze die (nicht zwingend aktuelle) Datei config/comics.yml." if source==:config
+      flash[:error] = "Kein Schreibzugriff auf tmp/comics.yml moeglich. Bitte korrigieren und dann nochmal versuchen." if source==:empty
       return comics
   end
 end
