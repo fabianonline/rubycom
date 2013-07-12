@@ -5,8 +5,8 @@
 # into config/comics.yml by the maintainer of rubycom.
 
 ---
-hejibits:
-    name: "Hejibits"
-    base_url: "http://www.hejibits.com/"
-    search_query: ".comicpane img"
+dorkly:
+    name: "Dorkly"
+    base_url: "http://www.dorkly.com/comics"
+    search_query: "a.continue_link; .the_comic .media img"
 
