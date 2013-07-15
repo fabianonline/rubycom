@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Strip < ActiveRecord::Base
   belongs_to :comic
   named_scope :by_date, lambda {|date| 

@@ -1,6 +1,6 @@
 <%= link_to "Verwaltung", :action=>:index %><br />
 
-<%= link_to "<< Zurueck (#{l @date-1, :format=>:short})", :date=>@date-1 %> 
+<%= link_to "<< Zurück (#{l @date-1, :format=>:short})", :date=>@date-1 %> 
 &bull; <%= link_to "Liste", :controller=>:comics, :action=>:daylist %> 
 <% if @date<Date.today %>
   &bull; <%= link_to "Weiter (#{l @date+1, :format=>:short}) >>", :date=>@date+1 %>
@@ -18,7 +18,7 @@
 <% end %>
 
 <br /><br />
-<%= link_to "<< Zurueck (#{l @date-1, :format=>:short})", :date=>@date-1 %> 
+<%= link_to "<< Zurück (#{l @date-1, :format=>:short})", :date=>@date-1 %> 
 &bull; <%= link_to "Liste", :controller=>:comics, :action=>:daylist %> 
 &bull; <%= link_to "Als gelesen markieren", :action=>:mark_as_read %>
 <% if @date<Date.today %>

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Comic < ActiveRecord::Base
   has_many :strips, :order=>:date, :dependent=>:destroy
   named_scope :enabled, :conditions=>{:status=>"enabled"}
@@ -149,7 +150,7 @@ class Comic < ActiveRecord::Base
       raise "RMagick konnte das heruntergeladene Bild nicht analysieren."
     end
     
-    raise "Bild ist zu klein (Breite oder Hoehe < 100px)." if !ignore_size && (img[0].rows<100 || img[0].columns<100)
+    raise "Bild ist zu klein (Breite oder Höhe < 100px)." if !ignore_size && (img[0].rows<100 || img[0].columns<100)
 
     ext = case img[0].format
       when "PNG" then "png"
@@ -178,7 +179,7 @@ class Comic < ActiveRecord::Base
     selector_part = 0
     begin
       while true do
-        logger.debug("Schleife laeuft...")
+        logger.debug("Schleife läuft...")
         debug_data = {}
         all_debug_data << debug_data
         document = get_html(override_url)
@@ -195,7 +196,7 @@ class Comic < ActiveRecord::Base
             selector_part += 1
             next
           else
-            raise "Selektiertes Element ist kein zulaessiges Element."
+            raise "Selektiertes Element ist kein zulässiges Element."
         end
         url = get_url(element)
         debug_data[:url_original] = url

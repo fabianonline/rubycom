@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ActiveRecord::Associations::AssociationProxy.class_eval do
   protected
   def with_scope(*args)
