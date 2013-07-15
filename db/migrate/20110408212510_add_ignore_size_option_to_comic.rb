@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddIgnoreSizeOptionToComic < ActiveRecord::Migration
   def self.up
     add_column :comics, :ignore_size, :boolean, :default=>false

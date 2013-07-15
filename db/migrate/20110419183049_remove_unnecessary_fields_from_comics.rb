@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemoveUnnecessaryFieldsFromComics < ActiveRecord::Migration
   def self.up
     remove_column :comics, :method

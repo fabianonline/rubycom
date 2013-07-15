@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDefaultValueForErrorcountInComics < ActiveRecord::Migration
   def self.up
     change_column :comics, :error_count, :integer, :default=>0, :null=>false

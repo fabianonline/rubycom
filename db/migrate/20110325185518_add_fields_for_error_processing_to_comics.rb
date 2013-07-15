@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddFieldsForErrorProcessingToComics < ActiveRecord::Migration
   def self.up
     add_column :comics, :status, :string, :default=>"enabled"

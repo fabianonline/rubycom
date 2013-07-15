@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module WillPaginate
   module VERSION
     MAJOR = 2

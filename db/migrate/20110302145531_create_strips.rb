@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateStrips < ActiveRecord::Migration
   def self.up
     create_table :strips do |t|

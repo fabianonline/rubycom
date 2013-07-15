@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support'
 require 'will_paginate/core_ext'
 

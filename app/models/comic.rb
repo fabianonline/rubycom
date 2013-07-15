@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Comic < ActiveRecord::Base
   has_many :strips, :order=>:date, :dependent=>:destroy
   named_scope :enabled, :conditions=>{:status=>"enabled"}
