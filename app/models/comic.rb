@@ -124,7 +124,7 @@ class Comic < ActiveRecord::Base
     dir = image_path()
     file = Time.now.strftime("%Y%m%d-%H%M%S") + "." + extension
     FileUtils.mkdir_p(dir)
-    File.open(dir + file, 'w') {|f| f.write(data)}
+    File.open(dir + file, 'wb') {|f| f.write(data)}
     return file
   end
 
