@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDefaultValueToBaseUrl < ActiveRecord::Migration
   def self.up
     change_column :comics, :base_url, :string, :default=>"http://"

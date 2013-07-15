@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ActionController::Routing::Routes.draw do |map|
   map.day 'day/:date', :controller=>:comics, :action=>:day
   map.mark_as_read 'day/:date/mark_as_read', :controller=>:comics, :action=>:mark_as_read

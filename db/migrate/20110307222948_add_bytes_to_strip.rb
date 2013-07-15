@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddBytesToStrip < ActiveRecord::Migration
   def self.up
     add_column :strips, :bytes, :integer

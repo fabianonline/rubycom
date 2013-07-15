@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'boot'
 require 'lib/activerecord_test_connector'
 

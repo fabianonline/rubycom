@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module WillPaginate
   # This is a feature backported from Rails 2.1 because of its usefullness not only with will_paginate,
   # but in other aspects when managing complex conditions that you want to be reusable.

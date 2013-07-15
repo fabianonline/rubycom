@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChangeAltAndTitleFieldsOfStripsToText < ActiveRecord::Migration
   def self.up
     change_column :strips, :title_tag, :text

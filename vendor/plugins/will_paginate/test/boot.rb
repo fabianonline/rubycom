@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 plugin_root = File.join(File.dirname(__FILE__), '..')
 version = ENV['RAILS_VERSION']
 version = nil if version and version == ""

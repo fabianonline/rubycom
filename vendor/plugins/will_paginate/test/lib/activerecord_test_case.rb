@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'lib/activerecord_test_connector'
 
 class ActiveRecordTestCase < Test::Unit::TestCase
